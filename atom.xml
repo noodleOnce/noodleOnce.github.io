@@ -56,26 +56,4 @@
     
   </entry>
   
-  <entry>
-    <title>Java实现网络爬虫</title>
-    <link href="http://example.com/2023/08/04/java%E5%AE%9E%E7%8E%B0%E7%BD%91%E7%BB%9C%E7%88%AC%E8%99%AB/"/>
-    <id>http://example.com/2023/08/04/java%E5%AE%9E%E7%8E%B0%E7%BD%91%E7%BB%9C%E7%88%AC%E8%99%AB/</id>
-    <published>2023-08-04T02:32:50.000Z</published>
-    <updated>2023-09-27T11:55:04.136Z</updated>
-    
-    <content type="html"><![CDATA[<h3 id="背景"><a href="#背景" class="headerlink" title="背景"></a>背景</h3><p>指定商品名称，爬取该商品在各电商平台的售价信息</p><hr>]]></content>
-    
-    
-      
-      
-    <summary type="html">&lt;h3 id=&quot;背景&quot;&gt;&lt;a href=&quot;#背景&quot; class=&quot;headerlink&quot; title=&quot;背景&quot;&gt;&lt;/a&gt;背景&lt;/h3&gt;&lt;p&gt;指定商品名称，爬取该商品在各电商平台的售价信息&lt;/p&gt;
-&lt;hr&gt;
-</summary>
-      
-    
-    
-    
-    
-  </entry>
-  
 </feed>
