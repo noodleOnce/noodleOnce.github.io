@@ -6,7 +6,7 @@
   <link href="http://example.com/atom.xml" rel="self"/>
   
   <link href="http://example.com/"/>
-  <updated>2023-10-19T03:17:34.516Z</updated>
+  <updated>2023-10-19T03:39:44.820Z</updated>
   <id>http://example.com/</id>
   
   <author>
@@ -18,12 +18,12 @@
   
   <entry>
     <title>Git常用命令</title>
-    <link href="http://example.com/2023/10/11/Git%E5%B8%B8%E7%94%A8%E5%91%BD%E4%BB%A4/"/>
-    <id>http://example.com/2023/10/11/Git%E5%B8%B8%E7%94%A8%E5%91%BD%E4%BB%A4/</id>
-    <published>2023-10-11T02:13:50.610Z</published>
-    <updated>2023-10-19T03:17:34.516Z</updated>
+    <link href="http://example.com/2023/10/19/Git%E5%B8%B8%E7%94%A8%E5%91%BD%E4%BB%A4/"/>
+    <id>http://example.com/2023/10/19/Git%E5%B8%B8%E7%94%A8%E5%91%BD%E4%BB%A4/</id>
+    <published>2023-10-18T16:00:00.000Z</published>
+    <updated>2023-10-19T03:39:44.820Z</updated>
     
-    <content type="html"><![CDATA[<ol><li>查看当前项目的所有远程分支<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">git branch -r</span><br><span class="line"># 如果只想查看远程分支的名称，可以使用 --list 或 -l 选项</span><br><span class="line">git branch -r --list</span><br></pre></td></tr></table></figure></li><li>查看当前项目的所有本地分支<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">git branch </span><br><span class="line"># 如果只想查看远程分支的名称，可以使用 --list 或 -l 选项</span><br><span class="line">git branch --list</span><br><span class="line"># 如果想查看本地分支的详细信息，可以使用 -v 选项</span><br><span class="line">git branch -v</span><br></pre></td></tr></table></figure></li><li>查看某个分支的最近一次提交<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"># 使用 -1 选项可以限制日志输出为只显示一次提交</span><br><span class="line">git log -1 prod-v3.9.1</span><br></pre></td></tr></table></figure></li><li>查看当前分支某个文件的最近一次提交<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"># HEAD表示最新的提交</span><br><span class="line">git show head src/main/java/com/ylsk/b2b3/service/sys/UserAgentService.java </span><br></pre></td></tr></table></figure></li><li>查看某一次提交的所有文件</li></ol><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"># &lt;commit-hash&gt; 是你要查看的提交的哈希值或引用</span><br><span class="line">git show --name-only 4505f7817a4f56b4e8581ea8985609b7ef47748b</span><br></pre></td></tr></table></figure><ol start="6"><li>查看某一次提交的某个文件的详细内容<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">git show 4505f7817a4f56b4e8581ea8985609b7ef47748b wyt/custMap/CustMapSurveyInfoToESRepo.yml</span><br></pre></td></tr></table></figure></li><li>合并分支<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"># 注意如果有冲突发生，你需要解决冲突并手动提交修改。冲突文件会在合并日志中显示</span><br><span class="line">git merge &lt;other_branch&gt;</span><br></pre></td></tr></table></figure></li></ol>]]></content>
+    <content type="html"><![CDATA[<ol><li>查看当前项目的所有远程分支<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">git branch -r</span><br><span class="line"># 如果只想查看远程分支的名称，可以使用 --list 或 -l 选项</span><br><span class="line">git branch -r --list</span><br></pre></td></tr></table></figure></li><li>查看当前项目的所有本地分支<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">git branch </span><br><span class="line"># 如果只想查看远程分支的名称，可以使用 --list 或 -l 选项</span><br><span class="line">git branch --list</span><br><span class="line"># 如果想查看本地分支的详细信息，可以使用 -v 选项</span><br><span class="line">git branch -v</span><br></pre></td></tr></table></figure></li><li>查看某个分支的最近一次提交<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"># 使用 -1 选项可以限制日志输出为只显示一次提交</span><br><span class="line">git log -1 prod-v3.9.1</span><br></pre></td></tr></table></figure></li><li>查看某个作者的最近一次提交<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"># &lt;author-name&gt; 是你要查找的作者的名称</span><br><span class="line">git log --author=&quot;John Doe&quot; -n 1</span><br></pre></td></tr></table></figure></li><li>查看当前分支某个文件的最近一次提交<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"># HEAD表示最新的提交</span><br><span class="line">git show head src/main/java/com/ylsk/b2b3/service/sys/UserAgentService.java </span><br></pre></td></tr></table></figure></li><li>查看某一次提交的所有文件</li></ol><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"># &lt;commit-hash&gt; 是你要查看的提交的哈希值或引用</span><br><span class="line">git show --name-only 4505f7817a4f56b4e8581ea8985609b7ef47748b</span><br></pre></td></tr></table></figure><ol start="7"><li>查看某一次提交的某个文件的详细内容<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">git show 4505f7817a4f56b4e8581ea8985609b7ef47748b wyt/custMap/CustMapSurveyInfoToESRepo.yml</span><br></pre></td></tr></table></figure></li><li>合并分支<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"># 注意如果有冲突发生，你需要解决冲突并手动提交修改。冲突文件会在合并日志中显示</span><br><span class="line">git merge &lt;other_branch&gt;</span><br></pre></td></tr></table></figure></li></ol>]]></content>
     
     
       
@@ -34,6 +34,8 @@
     
     
     
+    
+    <category term="Git" scheme="http://example.com/tags/Git/"/>
     
   </entry>
   
