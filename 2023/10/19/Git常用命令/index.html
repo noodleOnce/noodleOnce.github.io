@@ -18,15 +18,15 @@
   
   
   <title>Git常用命令 | 面条</title>
-  <meta name="description" content="查看当前项目的所有远程分支123git branch -r# 如果只想查看远程分支的名称，可以使用 --list 或 -l 选项git branch -r --list 查看当前项目的所有本地分支12345git branch # 如果只想查看远程分支的名称，可以使用 --list 或 -l 选项git branch --list# 如果想查看本地分支的详细信息，可以使用 -v 选项git br">
+  <meta name="description" content="查看当前项目的所有远程分支1234567git branch -r# 如果只想查看远程分支的名称，可以使用 --list 或 -l 选项git branch -r --list# 查看当前分支的远程地址git remote show origin# 删除远程分支git push origin --delete feature&#x2F;branch-1 查看当前项目的所有本地分支1234567git br">
 <meta property="og:type" content="article">
 <meta property="og:title" content="Git常用命令">
 <meta property="og:url" content="http://example.com/2023/10/19/Git%E5%B8%B8%E7%94%A8%E5%91%BD%E4%BB%A4/index.html">
 <meta property="og:site_name" content="Hexo">
-<meta property="og:description" content="查看当前项目的所有远程分支123git branch -r# 如果只想查看远程分支的名称，可以使用 --list 或 -l 选项git branch -r --list 查看当前项目的所有本地分支12345git branch # 如果只想查看远程分支的名称，可以使用 --list 或 -l 选项git branch --list# 如果想查看本地分支的详细信息，可以使用 -v 选项git br">
+<meta property="og:description" content="查看当前项目的所有远程分支1234567git branch -r# 如果只想查看远程分支的名称，可以使用 --list 或 -l 选项git branch -r --list# 查看当前分支的远程地址git remote show origin# 删除远程分支git push origin --delete feature&#x2F;branch-1 查看当前项目的所有本地分支1234567git br">
 <meta property="og:locale" content="zh_CN">
 <meta property="article:published_time" content="2023-10-18T16:00:00.000Z">
-<meta property="article:modified_time" content="2023-10-19T03:44:25.023Z">
+<meta property="article:modified_time" content="2023-11-01T04:05:58.470Z">
 <meta property="article:author" content="John Doe">
 <meta property="article:tag" content="工具">
 <meta name="twitter:card" content="summary">
@@ -362,8 +362,8 @@
     <div class="article-entry marked-body" itemprop="articleBody">
       
         <ol>
-<li>查看当前项目的所有远程分支<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">git branch -r</span><br><span class="line"># 如果只想查看远程分支的名称，可以使用 --list 或 -l 选项</span><br><span class="line">git branch -r --list</span><br></pre></td></tr></table></figure></li>
-<li>查看当前项目的所有本地分支<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">git branch </span><br><span class="line"># 如果只想查看远程分支的名称，可以使用 --list 或 -l 选项</span><br><span class="line">git branch --list</span><br><span class="line"># 如果想查看本地分支的详细信息，可以使用 -v 选项</span><br><span class="line">git branch -v</span><br></pre></td></tr></table></figure></li>
+<li>查看当前项目的所有远程分支<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">git branch -r</span><br><span class="line"># 如果只想查看远程分支的名称，可以使用 --list 或 -l 选项</span><br><span class="line">git branch -r --list</span><br><span class="line"># 查看当前分支的远程地址</span><br><span class="line">git remote show origin</span><br><span class="line"># 删除远程分支</span><br><span class="line">git push origin --delete feature/branch-1</span><br></pre></td></tr></table></figure></li>
+<li>查看当前项目的所有本地分支<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">git branch </span><br><span class="line"># 如果只想查看远程分支的名称，可以使用 --list 或 -l 选项</span><br><span class="line">git branch --list</span><br><span class="line"># 如果想查看本地分支的详细信息，可以使用 -v 选项</span><br><span class="line">git branch -v</span><br><span class="line"># 删除本地分支</span><br><span class="line">git branch -d feature/branch-1</span><br></pre></td></tr></table></figure></li>
 <li>查看某个分支的最近一次提交<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"># 使用 -1 选项可以限制日志输出为只显示一次提交</span><br><span class="line">git log -1 prod-v3.9.1</span><br></pre></td></tr></table></figure></li>
 <li>查看某个作者的最近一次提交<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"># &lt;author-name&gt; 是你要查找的作者的名称</span><br><span class="line">git log --author=&quot;John Doe&quot; -n 1</span><br></pre></td></tr></table></figure></li>
 <li>查看当前分支某个文件的最近一次提交<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"># HEAD表示最新的提交</span><br><span class="line">git show head src/main/java/com/ylsk/b2b3/service/sys/UserAgentService.java </span><br></pre></td></tr></table></figure></li>
