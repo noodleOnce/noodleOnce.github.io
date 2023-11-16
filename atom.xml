@@ -6,7 +6,7 @@
   <link href="http://example.com/atom.xml" rel="self"/>
   
   <link href="http://example.com/"/>
-  <updated>2023-11-16T07:46:01.199Z</updated>
+  <updated>2023-11-16T08:07:50.494Z</updated>
   <id>http://example.com/</id>
   
   <author>
@@ -21,7 +21,7 @@
     <link href="http://example.com/2023/11/16/%E6%88%91%E4%B8%8EChatGpt%E7%9A%84%E6%97%A5%E5%B8%B8%E5%AF%B9%E8%AF%9D/"/>
     <id>http://example.com/2023/11/16/%E6%88%91%E4%B8%8EChatGpt%E7%9A%84%E6%97%A5%E5%B8%B8%E5%AF%B9%E8%AF%9D/</id>
     <published>2023-11-15T16:00:00.000Z</published>
-    <updated>2023-11-16T07:46:01.199Z</updated>
+    <updated>2023-11-16T08:07:50.494Z</updated>
     
     <content type="html"><![CDATA[<p><img src="/../imgs/image-20231116154450503.png" alt="image-20231116154450503"></p><p><img src="/../imgs/image-20231116154518315.png" alt="image-20231116154518315"></p><p><img src="/../imgs/image-20231116154054250.png" alt="image-20231116154054250"></p><p><img src="/../imgs/image-20231116154253945.png" alt="image-20231116154253945"></p>]]></content>
     
@@ -35,7 +35,7 @@
     
     
     
-    <category term="coding" scheme="http://example.com/tags/coding/"/>
+    <category term="工具" scheme="http://example.com/tags/%E5%B7%A5%E5%85%B7/"/>
     
   </entry>
   
@@ -44,7 +44,7 @@
     <link href="http://example.com/2023/11/15/%E7%AE%80%E6%B4%81%E4%BB%A3%E7%A0%81%E7%89%87%E6%AE%B5/"/>
     <id>http://example.com/2023/11/15/%E7%AE%80%E6%B4%81%E4%BB%A3%E7%A0%81%E7%89%87%E6%AE%B5/</id>
     <published>2023-11-14T16:00:00.000Z</published>
-    <updated>2023-11-16T02:45:29.232Z</updated>
+    <updated>2023-11-16T08:07:59.440Z</updated>
     
     <content type="html"><![CDATA[<blockquote><p>代码标准：简洁、易读、易扩展</p></blockquote><h4 id="1-填充客户列表「是否已经添加计划」标签"><a href="#1-填充客户列表「是否已经添加计划」标签" class="headerlink" title="1.填充客户列表「是否已经添加计划」标签"></a>1.填充客户列表「是否已经添加计划」标签</h4><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">private</span> <span class="keyword">void</span> <span class="title function_">loadAddPlanLabel</span><span class="params">(List&lt;VisitCustInfo&gt; resultList, Long supUserId, String planTime)</span> &#123;</span><br><span class="line">    List&lt;String&gt; custIds = resultList.stream().map(VisitCustInfo::getCustId).collect(Collectors.toList());</span><br><span class="line">    Map&lt;String,VisitCustInfo&gt; map = resultList.stream()</span><br><span class="line">            .collect(Collectors.toMap(VisitCustInfo::getCustId,item -&gt; item));</span><br><span class="line">    List&lt;String&gt; addPlanCustIds = custVisitMapper.findVistPlan(custIds,supUserId,planTime);</span><br><span class="line">    <span class="keyword">if</span> (!CollectionUtils.isEmpty(addPlanCustIds)) &#123;</span><br><span class="line">      addPlanCustIds.stream().forEach(custId -&gt; &#123;</span><br><span class="line">        map.get(custId).setAddDayPlan(<span class="literal">true</span>);</span><br><span class="line">      &#125;);</span><br><span class="line">    &#125;</span><br><span class="line">  &#125;</span><br></pre></td></tr></table></figure><h4 id="2-填充客户列表「当月已拜访次数」标签"><a href="#2-填充客户列表「当月已拜访次数」标签" class="headerlink" title="2.填充客户列表「当月已拜访次数」标签"></a>2.填充客户列表「当月已拜访次数」标签</h4><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">private</span> <span class="keyword">void</span> <span class="title function_">loadVisitCountLabel</span><span class="params">(List&lt;VisitCustInfo&gt; resultList, Long supUserId)</span> &#123;</span><br><span class="line">    List&lt;String&gt; custIds = resultList.stream().map(VisitCustInfo::getCustId).collect(Collectors.toList());</span><br><span class="line">    Map&lt;String,VisitCustInfo&gt; map = resultList.stream()</span><br><span class="line">            .collect(Collectors.toMap(VisitCustInfo::getCustId,item -&gt; item));</span><br><span class="line">    List&lt;VisitCustInfo&gt; visitedCustList = custVisitMapper.findVistCount(custIds,supUserId);</span><br><span class="line">    <span class="keyword">if</span> (!CollectionUtils.isEmpty(visitedCustList))&#123;</span><br><span class="line">      visitedCustList.stream().forEach(visitCustInfo -&gt; &#123;</span><br><span class="line">        map.get(visitCustInfo.getCustId()).setVisitCountCurMonth(visitCustInfo.getVisitCountCurMonth());</span><br><span class="line">      &#125;);</span><br><span class="line">    &#125;</span><br><span class="line">  &#125;</span><br></pre></td></tr></table></figure>]]></content>
     
