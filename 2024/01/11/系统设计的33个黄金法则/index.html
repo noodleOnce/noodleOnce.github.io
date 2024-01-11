@@ -17,23 +17,21 @@
   <meta http-equiv="window-target" content="_top" />
   
   
-  <title>Bug等级划分 | 面条</title>
-  <meta name="description" content="软件Bug的来源Bug，原意为虫子，现在通常指软件缺陷、故障、问题等。 第一代计算机是由许多庞大且昂贵的继电器组成，并利用大量的电力来使继电器工作。可能正是由于计算机运行产生的光和热，引得一只小虫子Bug钻进了一支继电器内，导致整个计算机无法工作。 研究人员费了半天时间，总算发现原因所在，把这只小虫子从继电器中取出后，计算机又恢复正常。后来，Bug这个名词就沿用下来，表示电脑系统或程序中隐藏的错误">
+  <title>系统设计的33个黄金法则 | 面条</title>
+  <meta name="description" content="对于数据密集型系统 — 考虑使用缓存。 对于写入量大的系统 — 使用消息队列进行异步处理 对于低延迟要求 — 考虑使用缓存和 CDN。 需要𝐀原子性、𝐂一致性、𝐈隔离性、𝐃耐用性兼容数据库 — 选择 RDBMS&#x2F;SQL 数据库。 对于非结构化数据——可以选择NoSQL数据库。 拥有复杂的数据（视频、图像、文件）——选择 Blob&#x2F;对象存储。 复杂的计算——使用消息队列">
 <meta property="og:type" content="article">
-<meta property="og:title" content="Bug等级划分">
-<meta property="og:url" content="http://example.com/2023/10/31/Bug%E7%AD%89%E7%BA%A7%E5%88%92%E5%88%86/index.html">
+<meta property="og:title" content="系统设计的33个黄金法则">
+<meta property="og:url" content="http://example.com/2024/01/11/%E7%B3%BB%E7%BB%9F%E8%AE%BE%E8%AE%A1%E7%9A%8433%E4%B8%AA%E9%BB%84%E9%87%91%E6%B3%95%E5%88%99/index.html">
 <meta property="og:site_name" content="Hexo">
-<meta property="og:description" content="软件Bug的来源Bug，原意为虫子，现在通常指软件缺陷、故障、问题等。 第一代计算机是由许多庞大且昂贵的继电器组成，并利用大量的电力来使继电器工作。可能正是由于计算机运行产生的光和热，引得一只小虫子Bug钻进了一支继电器内，导致整个计算机无法工作。 研究人员费了半天时间，总算发现原因所在，把这只小虫子从继电器中取出后，计算机又恢复正常。后来，Bug这个名词就沿用下来，表示电脑系统或程序中隐藏的错误">
+<meta property="og:description" content="对于数据密集型系统 — 考虑使用缓存。 对于写入量大的系统 — 使用消息队列进行异步处理 对于低延迟要求 — 考虑使用缓存和 CDN。 需要𝐀原子性、𝐂一致性、𝐈隔离性、𝐃耐用性兼容数据库 — 选择 RDBMS&#x2F;SQL 数据库。 对于非结构化数据——可以选择NoSQL数据库。 拥有复杂的数据（视频、图像、文件）——选择 Blob&#x2F;对象存储。 复杂的计算——使用消息队列">
 <meta property="og:locale" content="zh_CN">
-<meta property="og:image" content="http://example.com/imgs/MBXY-CR-c51b850c4468f671173af5a5300758de.png">
-<meta property="article:published_time" content="2023-10-30T16:00:00.000Z">
-<meta property="article:modified_time" content="2023-10-31T03:38:30.439Z">
+<meta property="article:published_time" content="2024-01-11T08:39:08.000Z">
+<meta property="article:modified_time" content="2024-01-11T08:50:18.232Z">
 <meta property="article:author" content="John Doe">
-<meta property="article:tag" content="项目管理">
+<meta property="article:tag" content="设计">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:image" content="http://example.com/imgs/MBXY-CR-c51b850c4468f671173af5a5300758de.png">
   <!-- Canonical links -->
-  <link rel="canonical" href="http://example.com/2023/10/31/Bug%E7%AD%89%E7%BA%A7%E5%88%92%E5%88%86/index.html">
+  <link rel="canonical" href="http://example.com/2024/01/11/%E7%B3%BB%E7%BB%9F%E8%AE%BE%E8%AE%A1%E7%9A%8433%E4%B8%AA%E9%BB%84%E9%87%91%E6%B3%95%E5%88%99/index.html">
   
     <link rel="alternate" href="/atom.xml" title="Hexo" type="application/atom+xml">
   
@@ -328,14 +326,14 @@
   
 <main class="main" role="main">
   <div class="content">
-  <article id="post-Bug等级划分" class="article article-type-post" itemscope itemtype="http://schema.org/BlogPosting">
+  <article id="post-系统设计的33个黄金法则" class="article article-type-post" itemscope itemtype="http://schema.org/BlogPosting">
     
     <div class="article-header">
       
         
   
     <h1 class="article-title" itemprop="name">
-      Bug等级划分
+      系统设计的33个黄金法则
     </h1>
   
 
@@ -343,44 +341,61 @@
       <div class="article-meta">
         <span class="article-date">
     <i class="icon icon-calendar-check"></i>
-	<a href="/2023/10/31/Bug%E7%AD%89%E7%BA%A7%E5%88%92%E5%88%86/" class="article-date">
-	  <time datetime="2023-10-30T16:00:00.000Z" itemprop="datePublished">2023-10-31</time>
+	<a href="/2024/01/11/%E7%B3%BB%E7%BB%9F%E8%AE%BE%E8%AE%A1%E7%9A%8433%E4%B8%AA%E9%BB%84%E9%87%91%E6%B3%95%E5%88%99/" class="article-date">
+	  <time datetime="2024-01-11T08:39:08.000Z" itemprop="datePublished">2024-01-11</time>
 	</a>
 </span>
         
         
   <span class="article-tag">
     <i class="icon icon-tags"></i>
-	<a class="article-tag-link-link" href="/tags/%E9%A1%B9%E7%9B%AE%E7%AE%A1%E7%90%86/" rel="tag">项目管理</a>
+	<a class="article-tag-link-link" href="/tags/%E8%AE%BE%E8%AE%A1/" rel="tag">设计</a>
   </span>
 
 
         
 
-        <span class="post-comment"><i class="icon icon-comment"></i> <a href="/2023/10/31/Bug%E7%AD%89%E7%BA%A7%E5%88%92%E5%88%86/#comments" class="article-comment-link">评论</a></span>
+        <span class="post-comment"><i class="icon icon-comment"></i> <a href="/2024/01/11/%E7%B3%BB%E7%BB%9F%E8%AE%BE%E8%AE%A1%E7%9A%8433%E4%B8%AA%E9%BB%84%E9%87%91%E6%B3%95%E5%88%99/#comments" class="article-comment-link">评论</a></span>
         
       </div>
     </div>
     <div class="article-entry marked-body" itemprop="articleBody">
       
-        <h3 id=""><a href="#" class="headerlink" title=""></a><img src="/../imgs/MBXY-CR-c51b850c4468f671173af5a5300758de.png" alt="MBXY-CR-c51b850c4468f671173af5a5300758de"></h3><h3 id="软件Bug的来源"><a href="#软件Bug的来源" class="headerlink" title="软件Bug的来源"></a>软件Bug的来源</h3><p>Bug，原意为虫子，现在通常指软件缺陷、故障、问题等。</p>
-<p>第一代计算机是由许多庞大且昂贵的继电器组成，并利用大量的电力来使继电器工作。可能正是由于计算机运行产生的光和热，引得一只小虫子Bug钻进了一支继电器内，导致整个计算机无法工作。</p>
-<p>研究人员费了半天时间，总算发现原因所在，把这只小虫子从继电器中取出后，计算机又恢复正常。后来，Bug这个名词就沿用下来，表示电脑系统或程序中隐藏的错误、缺陷，漏洞或问题。</p>
-<h3 id="软件Bug的等级"><a href="#软件Bug的等级" class="headerlink" title="软件Bug的等级"></a>软件Bug的等级</h3><p>软件bug一般分为四种或五种等级，不同的软件领域，划分的可能略有差异，但大同小异。</p>
-<p><span style="color:red">一级（致命）Bug</span></p>
-<p>通常表现为：主流程无法跑通，系统无法运行，崩溃或严重资源不足，应用模块无法启动或异常退出，主要功能模块无法使用。</p>
-<p>比如：</p>
-<p>1.内存泄漏；</p>
-<p>2.严重的数值计算错误；</p>
-<p>3.系统容易崩溃；</p>
-<p>4.功能设计与需求严重不符；</p>
-<p>5.系统无法登陆；</p>
-<p>6.循坏报错，无法正常退出。</p>
-<p><span style="color:red">二级（严重）Bug</span><br>通常表现为：影响系统功能或操作，主要功能存在严重缺陷，但不会影响到系统稳定性。</p>
-<p>比如：<br>1.功能未实现；<br>2.功能存在报错；<br>3.数值轻微的计算错误。</p>
-<p><span style="color:red">三级（一般）Bug</span><br>通常表现为：界面、性能缺陷。</p>
-<p>比如：<br>1.边界条件下错误；<br>2.容错性不好；<br>3.大数据下容易无响应；<br>4.大数据操作时，没有提供进度条。</p>
-<p><span style="color:red">四级（提示）Bug</span><br>通常表现为：易用性及建议性问题<br>比如：<br>1.界面颜色搭配不好；<br>2.文字排列不整齐；<br>3.出现错别字，但是不影响功能；<br>4.界面格式不规范。</p>
+        <ol>
+<li>对于数据密集型系统 — 考虑使用缓存。</li>
+<li>对于写入量大的系统 — 使用消息队列进行异步处理</li>
+<li>对于低延迟要求 — 考虑使用缓存和 CDN。</li>
+<li>需要𝐀原子性、𝐂一致性、𝐈隔离性、𝐃耐用性兼容数据库 — 选择 RDBMS&#x2F;SQL 数据库。</li>
+<li>对于非结构化数据——可以选择NoSQL数据库。</li>
+<li>拥有复杂的数据（视频、图像、文件）——选择 Blob&#x2F;对象存储。</li>
+<li>复杂的计算——使用消息队列和缓存。</li>
+<li>海量数据搜索——考虑搜索索引、尝试搜索引擎。</li>
+<li>扩展 SQL 数据库 — 实施数据库分片。</li>
+<li>高可用性、性能和吞吐量 — 使用负载均衡器。</li>
+<li>全球数据交付——考虑使用 CDN。</li>
+<li>图形数据（具有节点、边和关系的数据）——利用图形数据库。</li>
+<li>扩展各种组件——实现水平扩展。</li>
+<li>高性能数据库查询——使用数据库索引。</li>
+<li>批量作业处理——考虑批处理和消息队列。</li>
+<li>服务器负载管理和防止 DOS 攻击 - 使用速率限制器。</li>
+<li>微服务架构——使用 API 网关。</li>
+<li>针对单点故障——实施冗余。</li>
+<li>为了容错性和持久性——实施数据复制。</li>
+<li>对于用户到用户的快速通信 — 使用 Websockets。</li>
+<li>分布式系统中的故障检测——实现心跳。</li>
+<li>数据完整性——使用校验和算法。</li>
+<li>高效的服务器扩展——一致性哈希。</li>
+<li>去中心化数据传输——考虑 Gossip 协议。</li>
+<li>基于位置的功能 — 使用四叉树、Geohash 等。</li>
+<li>避免特定的技术名称 — 使用通用术语。</li>
+<li>高可用性和一致性的权衡——最终一致性。</li>
+<li>对于IP解析和域名查询——DNS。</li>
+<li>处理网络请求中的大数据——实施分页。</li>
+<li>缓存删除策略 — 首选 LRU（最近最少使用）缓存。</li>
+<li>处理流量高峰：实现自动扩展以动态管理资源</li>
+<li>审计跟踪 — 考虑使用数据湖</li>
+<li>处理高并发连接 — 使用连接池并考虑使用 Protobuf 来最小化数据</li>
+</ol>
 
       
     </div>
@@ -390,7 +405,7 @@
     
     <li class="post-copyright-link hidden-xs">
       <strong>本文链接：</strong>
-      <a href="http://example.com/2023/10/31/Bug%E7%AD%89%E7%BA%A7%E5%88%92%E5%88%86/" title="Bug等级划分" target="_blank" rel="external">http://example.com/2023/10/31/Bug等级划分/</a>
+      <a href="http://example.com/2024/01/11/%E7%B3%BB%E7%BB%9F%E8%AE%BE%E8%AE%A1%E7%9A%8433%E4%B8%AA%E9%BB%84%E9%87%91%E6%B3%95%E5%88%99/" title="系统设计的33个黄金法则" target="_blank" rel="external">http://example.com/2024/01/11/系统设计的33个黄金法则/</a>
     </li>
     
     <li class="post-copyright-license">
@@ -434,13 +449,9 @@
   
   <ul class="pager pull-left">
     
-    <li class="prev">
-      <a href="/2023/11/15/%E7%AE%80%E6%B4%81%E4%BB%A3%E7%A0%81%E7%89%87%E6%AE%B5/" title="简洁代码片段"><i class="icon icon-angle-left" aria-hidden="true"></i><span>&nbsp;&nbsp;上一篇</span></a>
-    </li>
-    
     
     <li class="next">
-      <a href="/2023/10/31/%E4%B8%AD%E5%9B%BD%E5%8E%86%E5%8F%B2%E6%9C%9D%E4%BB%A3%E7%BA%AA%E5%B9%B4%E8%A1%A8/" title="中国历史朝代纪年表"><span>下一篇&nbsp;&nbsp;</span><i class="icon icon-angle-right" aria-hidden="true"></i></a>
+      <a href="/2023/11/24/Homebrew%E4%BB%8B%E7%BB%8D/" title="Homebrew介绍"><span>下一篇&nbsp;&nbsp;</span><i class="icon icon-angle-right" aria-hidden="true"></i></a>
     </li>
     
     
