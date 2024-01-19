@@ -6,7 +6,7 @@
   <link href="http://example.com/atom.xml" rel="self"/>
   
   <link href="http://example.com/"/>
-  <updated>2024-01-11T10:36:05.718Z</updated>
+  <updated>2024-01-19T04:08:33.613Z</updated>
   <id>http://example.com/</id>
   
   <author>
@@ -15,6 +15,29 @@
   </author>
   
   <generator uri="https://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>UML时序图</title>
+    <link href="http://example.com/2024/01/19/UML%E6%97%B6%E5%BA%8F%E5%9B%BE/"/>
+    <id>http://example.com/2024/01/19/UML%E6%97%B6%E5%BA%8F%E5%9B%BE/</id>
+    <published>2024-01-19T04:07:49.000Z</published>
+    <updated>2024-01-19T04:08:33.613Z</updated>
+    
+    <content type="html"><![CDATA[<p><img src="/../imgs/%E6%B5%81%E5%90%91%E6%95%B0%E6%8D%AE2.drawio%20(2).png" alt="流向数据2.drawio (2)"></p>]]></content>
+    
+    
+      
+      
+    <summary type="html">&lt;p&gt;&lt;img src=&quot;/../imgs/%E6%B5%81%E5%90%91%E6%95%B0%E6%8D%AE2.drawio%20(2).png&quot; alt=&quot;流向数据2.drawio (2)&quot;&gt;&lt;/p&gt;
+</summary>
+      
+    
+    
+    
+    
+    <category term="设计" scheme="http://example.com/tags/%E8%AE%BE%E8%AE%A1/"/>
+    
+  </entry>
   
   <entry>
     <title>如何画好一张架构图/业务图/流程图，掌握这4个关键点(转载)</title>
