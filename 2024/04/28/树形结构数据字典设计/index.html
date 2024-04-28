@@ -18,18 +18,18 @@
   
   
   <title>树形结构数据字典设计 | 面条</title>
-  <meta name="description" content="背景最近接受一个小需求，对AI生成的对话记录提供点赞和反馈功能，反馈的内容由后端配置化  分析看到需求第一时间想到的是将反馈内容存入数据字典表，经分析，系统目前的字典表设计最多只支持两级，虽然说勉强可以实现，可是会用到一些硬编码。刚好这段时间也不是很忙，于是就有了这张树形结构的数据字典表，支持多级。重点就是在原有的基础上加一个PID字段。  编码1.Dao实现将入参字典类型匹配的字典项作为根节点，">
+  <meta name="description" content="背景最近接受一个小需求，对AI生成的对话记录提供点赞和反馈功能，反馈的内容由后端配置化  分析看到需求第一时间想到的是将反馈内容存入数据字典表，经分析，系统目前的字典表设计最多只支持两级，虽然说勉强可以实现，可是会用到一些硬编码。刚好这段时间也不是很忙，做人还是得有一些追求，于是就有了这张树形结构的数据字典表，通用于多级数据字典，便于后续需求扩展。重点就是在原有的基础上加一个PID字段。  编码1">
 <meta property="og:type" content="article">
 <meta property="og:title" content="树形结构数据字典设计">
 <meta property="og:url" content="http://example.com/2024/04/28/%E6%A0%91%E5%BD%A2%E7%BB%93%E6%9E%84%E6%95%B0%E6%8D%AE%E5%AD%97%E5%85%B8%E8%AE%BE%E8%AE%A1/index.html">
 <meta property="og:site_name" content="Hexo">
-<meta property="og:description" content="背景最近接受一个小需求，对AI生成的对话记录提供点赞和反馈功能，反馈的内容由后端配置化  分析看到需求第一时间想到的是将反馈内容存入数据字典表，经分析，系统目前的字典表设计最多只支持两级，虽然说勉强可以实现，可是会用到一些硬编码。刚好这段时间也不是很忙，于是就有了这张树形结构的数据字典表，支持多级。重点就是在原有的基础上加一个PID字段。  编码1.Dao实现将入参字典类型匹配的字典项作为根节点，">
+<meta property="og:description" content="背景最近接受一个小需求，对AI生成的对话记录提供点赞和反馈功能，反馈的内容由后端配置化  分析看到需求第一时间想到的是将反馈内容存入数据字典表，经分析，系统目前的字典表设计最多只支持两级，虽然说勉强可以实现，可是会用到一些硬编码。刚好这段时间也不是很忙，做人还是得有一些追求，于是就有了这张树形结构的数据字典表，通用于多级数据字典，便于后续需求扩展。重点就是在原有的基础上加一个PID字段。  编码1">
 <meta property="og:locale" content="zh_CN">
 <meta property="og:image" content="http://example.com/imgs/image-20240428152804199.png">
 <meta property="og:image" content="http://example.com/imgs/image-20240428155808825.png">
 <meta property="og:image" content="http://example.com/imgs/image-20240428163845729.png">
 <meta property="article:published_time" content="2024-04-28T06:39:04.000Z">
-<meta property="article:modified_time" content="2024-04-28T09:19:47.678Z">
+<meta property="article:modified_time" content="2024-04-28T09:27:52.474Z">
 <meta property="article:author" content="John Doe">
 <meta property="article:tag" content="技术设计">
 <meta name="twitter:card" content="summary">
@@ -367,7 +367,7 @@
       
         <h3 id="背景"><a href="#背景" class="headerlink" title="背景"></a>背景</h3><p>最近接受一个小需求，对AI生成的对话记录提供点赞和反馈功能，反馈的内容由后端配置化</p>
 <p><img src="/../imgs/image-20240428152804199.png" alt="image-20240428152804199"></p>
-<h3 id="分析"><a href="#分析" class="headerlink" title="分析"></a>分析</h3><p>看到需求第一时间想到的是将反馈内容存入数据字典表，经分析，系统目前的字典表设计最多只支持两级，虽然说勉强可以实现，可是会用到一些硬编码。刚好这段时间也不是很忙，于是就有了这张树形结构的数据字典表，支持多级。重点就是在原有的基础上加一个PID字段。</p>
+<h3 id="分析"><a href="#分析" class="headerlink" title="分析"></a>分析</h3><p>看到需求第一时间想到的是将反馈内容存入数据字典表，经分析，系统目前的字典表设计最多只支持两级，虽然说勉强可以实现，可是会用到一些硬编码。刚好这段时间也不是很忙，做人还是得有一些追求，于是就有了这张树形结构的数据字典表，通用于多级数据字典，便于后续需求扩展。重点就是在原有的基础上加一个PID字段。</p>
 <p><img src="/../imgs/image-20240428155808825.png" alt="image-20240428155808825"></p>
 <h3 id="编码"><a href="#编码" class="headerlink" title="编码"></a>编码</h3><h5 id="1-Dao实现"><a href="#1-Dao实现" class="headerlink" title="1.Dao实现"></a>1.Dao实现</h5><p>将入参字典类型匹配的字典项作为根节点，查找出根节点下的所有子孙节点，包含根节点本身，这里用到了自关联，因为我的mysql版本过低，不能用mysql自带的递归（WITH RECURSIVE 需要8.0及以上版本）</p>
 <figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br></pre></td><td class="code"><pre><span class="line">SELECT</span><br><span class="line">        d3.*</span><br><span class="line">      FROM</span><br><span class="line">        tb_sup_basic_dictitem d1</span><br><span class="line">          JOIN</span><br><span class="line">        tb_sup_basic_dictitem d2 ON d1.id = d2.parent_id</span><br><span class="line">          JOIN</span><br><span class="line">        tb_sup_basic_dictitem d3 ON d2.id = d3.parent_id</span><br><span class="line">      WHERE</span><br><span class="line">        d1.dict_type = &#x27;mastone_report&#x27;</span><br><span class="line">      UNION</span><br><span class="line">      SELECT</span><br><span class="line">        d2.*</span><br><span class="line">      FROM</span><br><span class="line">        tb_sup_basic_dictitem d1</span><br><span class="line">          JOIN</span><br><span class="line">        tb_sup_basic_dictitem d2 ON d1.id = d2.parent_id</span><br><span class="line">      WHERE</span><br><span class="line">        d1.dict_type = &#x27;mastone_report&#x27;</span><br><span class="line">      UNION</span><br><span class="line">      SELECT</span><br><span class="line">        d1.*</span><br><span class="line">      FROM</span><br><span class="line">        tb_sup_basic_dictitem d1</span><br><span class="line">      WHERE</span><br><span class="line">        d1.dict_type = &#x27;mastone_report&#x27;</span><br></pre></td></tr></table></figure>
