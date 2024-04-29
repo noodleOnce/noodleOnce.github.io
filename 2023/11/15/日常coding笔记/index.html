@@ -17,21 +17,23 @@
   <meta http-equiv="window-target" content="_top" />
   
   
-  <title>简洁代码片段 | 面条</title>
+  <title>日常coding笔记 | 面条</title>
   <meta name="description" content="代码标准：简洁、易读、易扩展  1.填充客户列表「是否已经添加计划」标签1234567891011private void loadAddPlanLabel(List&lt;VisitCustInfo&gt; resultList, Long supUserId, String planTime) &amp;#123;    List&lt;String&gt; custIds &#x3D; resultList">
 <meta property="og:type" content="article">
-<meta property="og:title" content="简洁代码片段">
-<meta property="og:url" content="http://example.com/2023/11/15/%E7%AE%80%E6%B4%81%E4%BB%A3%E7%A0%81%E7%89%87%E6%AE%B5/index.html">
+<meta property="og:title" content="日常coding笔记">
+<meta property="og:url" content="http://example.com/2023/11/15/%E6%97%A5%E5%B8%B8coding%E7%AC%94%E8%AE%B0/index.html">
 <meta property="og:site_name" content="Hexo">
 <meta property="og:description" content="代码标准：简洁、易读、易扩展  1.填充客户列表「是否已经添加计划」标签1234567891011private void loadAddPlanLabel(List&lt;VisitCustInfo&gt; resultList, Long supUserId, String planTime) &amp;#123;    List&lt;String&gt; custIds &#x3D; resultList">
 <meta property="og:locale" content="zh_CN">
+<meta property="og:image" content="http://example.com/imgs/image-20240429180958034.png">
 <meta property="article:published_time" content="2023-11-14T16:00:00.000Z">
-<meta property="article:modified_time" content="2023-11-16T08:07:59.440Z">
+<meta property="article:modified_time" content="2024-04-29T10:13:29.918Z">
 <meta property="article:author" content="John Doe">
 <meta property="article:tag" content="coding">
 <meta name="twitter:card" content="summary">
+<meta name="twitter:image" content="http://example.com/imgs/image-20240429180958034.png">
   <!-- Canonical links -->
-  <link rel="canonical" href="http://example.com/2023/11/15/%E7%AE%80%E6%B4%81%E4%BB%A3%E7%A0%81%E7%89%87%E6%AE%B5/index.html">
+  <link rel="canonical" href="http://example.com/2023/11/15/%E6%97%A5%E5%B8%B8coding%E7%AC%94%E8%AE%B0/index.html">
   
     <link rel="alternate" href="/atom.xml" title="Hexo" type="application/atom+xml">
   
@@ -326,14 +328,14 @@
   
 <main class="main" role="main">
   <div class="content">
-  <article id="post-简洁代码片段" class="article article-type-post" itemscope itemtype="http://schema.org/BlogPosting">
+  <article id="post-日常coding笔记" class="article article-type-post" itemscope itemtype="http://schema.org/BlogPosting">
     
     <div class="article-header">
       
         
   
     <h1 class="article-title" itemprop="name">
-      简洁代码片段
+      日常coding笔记
     </h1>
   
 
@@ -341,7 +343,7 @@
       <div class="article-meta">
         <span class="article-date">
     <i class="icon icon-calendar-check"></i>
-	<a href="/2023/11/15/%E7%AE%80%E6%B4%81%E4%BB%A3%E7%A0%81%E7%89%87%E6%AE%B5/" class="article-date">
+	<a href="/2023/11/15/%E6%97%A5%E5%B8%B8coding%E7%AC%94%E8%AE%B0/" class="article-date">
 	  <time datetime="2023-11-14T16:00:00.000Z" itemprop="datePublished">2023-11-15</time>
 	</a>
 </span>
@@ -355,7 +357,7 @@
 
         
 
-        <span class="post-comment"><i class="icon icon-comment"></i> <a href="/2023/11/15/%E7%AE%80%E6%B4%81%E4%BB%A3%E7%A0%81%E7%89%87%E6%AE%B5/#comments" class="article-comment-link">评论</a></span>
+        <span class="post-comment"><i class="icon icon-comment"></i> <a href="/2023/11/15/%E6%97%A5%E5%B8%B8coding%E7%AC%94%E8%AE%B0/#comments" class="article-comment-link">评论</a></span>
         
       </div>
     </div>
@@ -366,6 +368,11 @@
 </blockquote>
 <h4 id="1-填充客户列表「是否已经添加计划」标签"><a href="#1-填充客户列表「是否已经添加计划」标签" class="headerlink" title="1.填充客户列表「是否已经添加计划」标签"></a>1.填充客户列表「是否已经添加计划」标签</h4><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">private</span> <span class="keyword">void</span> <span class="title function_">loadAddPlanLabel</span><span class="params">(List&lt;VisitCustInfo&gt; resultList, Long supUserId, String planTime)</span> &#123;</span><br><span class="line">    List&lt;String&gt; custIds = resultList.stream().map(VisitCustInfo::getCustId).collect(Collectors.toList());</span><br><span class="line">    Map&lt;String,VisitCustInfo&gt; map = resultList.stream()</span><br><span class="line">            .collect(Collectors.toMap(VisitCustInfo::getCustId,item -&gt; item));</span><br><span class="line">    List&lt;String&gt; addPlanCustIds = custVisitMapper.findVistPlan(custIds,supUserId,planTime);</span><br><span class="line">    <span class="keyword">if</span> (!CollectionUtils.isEmpty(addPlanCustIds)) &#123;</span><br><span class="line">      addPlanCustIds.stream().forEach(custId -&gt; &#123;</span><br><span class="line">        map.get(custId).setAddDayPlan(<span class="literal">true</span>);</span><br><span class="line">      &#125;);</span><br><span class="line">    &#125;</span><br><span class="line">  &#125;</span><br></pre></td></tr></table></figure>
 <h4 id="2-填充客户列表「当月已拜访次数」标签"><a href="#2-填充客户列表「当月已拜访次数」标签" class="headerlink" title="2.填充客户列表「当月已拜访次数」标签"></a>2.填充客户列表「当月已拜访次数」标签</h4><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">private</span> <span class="keyword">void</span> <span class="title function_">loadVisitCountLabel</span><span class="params">(List&lt;VisitCustInfo&gt; resultList, Long supUserId)</span> &#123;</span><br><span class="line">    List&lt;String&gt; custIds = resultList.stream().map(VisitCustInfo::getCustId).collect(Collectors.toList());</span><br><span class="line">    Map&lt;String,VisitCustInfo&gt; map = resultList.stream()</span><br><span class="line">            .collect(Collectors.toMap(VisitCustInfo::getCustId,item -&gt; item));</span><br><span class="line">    List&lt;VisitCustInfo&gt; visitedCustList = custVisitMapper.findVistCount(custIds,supUserId);</span><br><span class="line">    <span class="keyword">if</span> (!CollectionUtils.isEmpty(visitedCustList))&#123;</span><br><span class="line">      visitedCustList.stream().forEach(visitCustInfo -&gt; &#123;</span><br><span class="line">        map.get(visitCustInfo.getCustId()).setVisitCountCurMonth(visitCustInfo.getVisitCountCurMonth());</span><br><span class="line">      &#125;);</span><br><span class="line">    &#125;</span><br><span class="line">  &#125;</span><br></pre></td></tr></table></figure>
+<h3 id="3-批量更新Update-Select…"><a href="#3-批量更新Update-Select…" class="headerlink" title="3.批量更新Update Select….."></a>3.批量更新Update Select…..</h3><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line">UPDATE tb_cust_main tcm</span><br><span class="line">JOIN (</span><br><span class="line">    SELECT tcm.cust_id, tec.link_man AS erplinkman, tec.link_phone AS erplinkphone</span><br><span class="line">    FROM tb_cust_main tcm </span><br><span class="line">    INNER JOIN tb_cust_relation tcr ON tcm.cust_id = tcr.cust_id </span><br><span class="line">    INNER JOIN tb_erp_cust tec ON tcr.store_cust_no = tec.erp_cust_no </span><br><span class="line">    WHERE tcr.store_id = 1735134917792903169 </span><br><span class="line">    AND tcm.legal_person_tel LIKE &#x27;Ylsk%&#x27; </span><br><span class="line">    AND tec.link_phone NOT LIKE &#x27;Ylsk%&#x27;</span><br><span class="line">) erpcust ON tcm.cust_id = erpcust.cust_id</span><br><span class="line">SET tcm.legal_person = erpcust.erplinkman, tcm.legal_person_tel = erpcust.erplinkphone;</span><br></pre></td></tr></table></figure>
+<h3 id="4-对集合做统计分析"><a href="#4-对集合做统计分析" class="headerlink" title="4.对集合做统计分析"></a>4.对集合做统计分析</h3><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// 管理者身份下的团队或部门下的业务员分享明细</span></span><br><span class="line">List&lt;ScienceShareUserVo&gt; shareUserList = shareMapper.findShareUserList4Manager(scienceId,scienceQo.getSupAccountId());</span><br><span class="line"><span class="comment">// 统计分享用户数</span></span><br><span class="line"><span class="type">Long</span> <span class="variable">shareUserCount</span> <span class="operator">=</span> shareUserList.stream().filter(item -&gt; item.getIsShare() == <span class="number">1</span>).collect(Collectors.counting());</span><br><span class="line"><span class="comment">// 统计查看客户数</span></span><br><span class="line"><span class="type">int</span> <span class="variable">viewCount</span> <span class="operator">=</span> shareUserList.stream().mapToInt(item -&gt; item.getViewCount().equals(<span class="string">&quot;-&quot;</span>) ? <span class="number">0</span> : Integer.valueOf(item.getViewCount())).sum();</span><br><span class="line"><span class="comment">// 统计报名客户数</span></span><br><span class="line"><span class="type">int</span> <span class="variable">attendorCount</span> <span class="operator">=</span> shareUserList.stream().mapToInt(item -&gt; item.getAttendorCount().equals(<span class="string">&quot;-&quot;</span>) ? <span class="number">0</span> : Integer.valueOf(item.getAttendorCount())).sum();</span><br></pre></td></tr></table></figure>
+<h3 id="5-mysql-UNION-和-UNION-ALL-的区别"><a href="#5-mysql-UNION-和-UNION-ALL-的区别" class="headerlink" title="5.mysql UNION 和 UNION ALL 的区别"></a>5.mysql UNION 和 UNION ALL 的区别</h3><p>UNION:相同的行去重<br>UNION ALL ：相同的行不去重，由于没有去重的计算，性能优于UNION</p>
+<p><img src="/../imgs/image-20240429180958034.png" alt="image-20240429180958034"></p>
+
       
     </div>
     <div class="article-footer">
@@ -374,7 +381,7 @@
     
     <li class="post-copyright-link hidden-xs">
       <strong>本文链接：</strong>
-      <a href="http://example.com/2023/11/15/%E7%AE%80%E6%B4%81%E4%BB%A3%E7%A0%81%E7%89%87%E6%AE%B5/" title="简洁代码片段" target="_blank" rel="external">http://example.com/2023/11/15/简洁代码片段/</a>
+      <a href="http://example.com/2023/11/15/%E6%97%A5%E5%B8%B8coding%E7%AC%94%E8%AE%B0/" title="日常coding笔记" target="_blank" rel="external">http://example.com/2023/11/15/日常coding笔记/</a>
     </li>
     
     <li class="post-copyright-license">
