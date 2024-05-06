@@ -6,7 +6,7 @@
   <link href="http://example.com/atom.xml" rel="self"/>
   
   <link href="http://example.com/"/>
-  <updated>2024-04-28T09:28:28.503Z</updated>
+  <updated>2024-05-06T09:06:21.815Z</updated>
   <id>http://example.com/</id>
   
   <author>
@@ -15,6 +15,29 @@
   </author>
   
   <generator uri="https://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>系统架构图</title>
+    <link href="http://example.com/2024/05/06/%E7%B3%BB%E7%BB%9F%E6%9E%B6%E6%9E%84%E5%9B%BE/"/>
+    <id>http://example.com/2024/05/06/%E7%B3%BB%E7%BB%9F%E6%9E%B6%E6%9E%84%E5%9B%BE/</id>
+    <published>2024-05-06T09:02:40.000Z</published>
+    <updated>2024-05-06T09:06:21.815Z</updated>
+    
+    <content type="html"><![CDATA[<p><img src="/../imgs/%E7%B3%BB%E7%BB%9F%E6%9E%B6%E6%9E%84%E5%9B%BE.jpg" alt="系统架构图"></p>]]></content>
+    
+    
+      
+      
+    <summary type="html">&lt;p&gt;&lt;img src=&quot;/../imgs/%E7%B3%BB%E7%BB%9F%E6%9E%B6%E6%9E%84%E5%9B%BE.jpg&quot; alt=&quot;系统架构图&quot;&gt;&lt;/p&gt;
+</summary>
+      
+    
+    
+    
+    
+    <category term="设计" scheme="http://example.com/tags/%E8%AE%BE%E8%AE%A1/"/>
+    
+  </entry>
   
   <entry>
     <title>树形结构数据字典设计</title>
