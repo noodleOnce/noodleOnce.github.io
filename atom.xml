@@ -6,7 +6,7 @@
   <link href="http://example.com/atom.xml" rel="self"/>
   
   <link href="http://example.com/"/>
-  <updated>2024-05-06T09:06:21.815Z</updated>
+  <updated>2024-05-24T07:25:49.014Z</updated>
   <id>http://example.com/</id>
   
   <author>
@@ -15,6 +15,51 @@
   </author>
   
   <generator uri="https://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>言论摘抄</title>
+    <link href="http://example.com/2024/05/24/%E8%A8%80%E8%AE%BA%E6%91%98%E6%8A%84/"/>
+    <id>http://example.com/2024/05/24/%E8%A8%80%E8%AE%BA%E6%91%98%E6%8A%84/</id>
+    <published>2024-05-24T07:23:57.000Z</published>
+    <updated>2024-05-24T07:25:49.014Z</updated>
+    
+    <content type="html"><![CDATA[<h5 id="1"><a href="#1" class="headerlink" title="1."></a>1.</h5><p>20多岁时，我跟一个长辈说：“我很担心，别人会怎么看待我做的那个决定。”长辈说：“放心吧，你没有观众的。”</p><p>现在想起来，我认为这是我得到过的最好建议。</p><p>– 阿曼达·福蒂尼（Amanda Fortini），美国作家</p><h5 id="2"><a href="#2" class="headerlink" title="2."></a>2.</h5><p>大量的面试和考试，基本上是在测试你能在多大程度上替代编译器。比如，Java 认证考试倾向于考察语法和编译问题，而不是实际编程的能力或系统设计的能力。</p><p>– 《我是程序员而不是编译器》</p><h5 id="3"><a href="#3" class="headerlink" title="3."></a>3.</h5><p>我的职业建议是，行动要急不可耐，对于结果要抱有耐心。</p><p>– 《给年轻自己的职业建议》</p>]]></content>
+    
+    
+      
+      
+    <summary type="html">&lt;h5 id=&quot;1&quot;&gt;&lt;a href=&quot;#1&quot; class=&quot;headerlink&quot; title=&quot;1.&quot;&gt;&lt;/a&gt;1.&lt;/h5&gt;&lt;p&gt;20多岁时，我跟一个长辈说：“我很担心，别人会怎么看待我做的那个决定。”长辈说：“放心吧，你没有观众的。”&lt;/p&gt;
+&lt;p&gt;现在想起来，我认为这是</summary>
+      
+    
+    
+    
+    
+    <category term="笔记" scheme="http://example.com/tags/%E7%AC%94%E8%AE%B0/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>文摘摘抄</title>
+    <link href="http://example.com/2024/05/24/%E6%96%87%E6%91%98%E6%91%98%E6%8A%84/"/>
+    <id>http://example.com/2024/05/24/%E6%96%87%E6%91%98%E6%91%98%E6%8A%84/</id>
+    <published>2024-05-24T07:18:47.000Z</published>
+    <updated>2024-05-24T07:28:01.727Z</updated>
+    
+    <content type="html"><![CDATA[<h5 id="1、CEO-和三个信封-50"><a href="#1、CEO-和三个信封-50" class="headerlink" title="1、CEO 和三个信封[50]"></a>1、CEO 和三个信封[50]</h5><p>一家陷入困境的公司，聘请了一位新的 CEO。</p><p>即将卸任的前 CEO 私下会见了他，并向他赠送了三个有编号的信封。“如果你遇到了重大麻烦，请打开这些信封，每次只能打开一个。”前 CEO 说。</p><p><img src="/../imgs/40357297b2d1312d892ee9ad49097ce0.jpeg" alt="40357297b2d1312d892ee9ad49097ce0"></p><p>三个月过去了，公司的销售额和利润仍然在大幅下降，新任 CEO 受到了很大的压力。</p><p>他开始惊慌，但随后他想起了那些信封。他从抽屉里拿出第一个信封，上面写着：“责怪你的前任。”</p><p>新任 CEO 就召开新闻发布会并解释说，前任给他留下了烂摊子，清理它的时间比预期要长，但一切都在正确的轨道上。媒体和华尔街对他的解释感到满意，做出了积极回应。</p><p>又一个季度过去了，公司仍在苦苦挣扎。吸取了之前的经验，他就打开了第二个信封，上面写着：“重组。” 因此，他解雇了员工，整合了部门，尽可能地削减成本，华尔街和媒体都对他的努力表示赞赏。</p><p>三个月过去了，公司的销售额和利润仍然裹足不前。他在财报电话会议前，走进办公室，关上门，打开第三个信封，上面写着：“准备三个信封。”</p>]]></content>
+    
+    
+      
+      
+    <summary type="html">&lt;h5 id=&quot;1、CEO-和三个信封-50&quot;&gt;&lt;a href=&quot;#1、CEO-和三个信封-50&quot; class=&quot;headerlink&quot; title=&quot;1、CEO 和三个信封[50]&quot;&gt;&lt;/a&gt;1、CEO 和三个信封[50]&lt;/h5&gt;&lt;p&gt;一家陷入困境的公司，聘请了一位新的 CE</summary>
+      
+    
+    
+    
+    
+    <category term="笔记" scheme="http://example.com/tags/%E7%AC%94%E8%AE%B0/"/>
+    
+  </entry>
   
   <entry>
     <title>系统架构图</title>
