@@ -1,8 +1,12 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   <url>
+    <loc>http://example.com/2023/11/16/%E6%88%91%E4%B8%8EChatGpt%E7%9A%84%E6%97%A5%E5%B8%B8%E5%AF%B9%E8%AF%9D/</loc>
+    <lastmod>2024-09-05</lastmod>
+  </url>
+  <url>
     <loc>http://example.com/2023/11/15/%E6%97%A5%E5%B8%B8coding%E7%AC%94%E8%AE%B0/</loc>
-    <lastmod>2024-07-10</lastmod>
+    <lastmod>2024-08-08</lastmod>
   </url>
   <url>
     <loc>http://example.com/2024/06/13/%E8%87%AA%E5%B7%B1%E5%AF%B9%E7%AE%A1%E7%90%86%E7%9A%84%E7%90%86%E8%A7%A3/</loc>
@@ -75,10 +79,6 @@
   <url>
     <loc>http://example.com/2023/11/21/hexo%E4%B8%AA%E4%BA%BA%E5%8D%9A%E5%AE%A2%E6%90%AD%E5%BB%BA/</loc>
     <lastmod>2023-11-27</lastmod>
-  </url>
-  <url>
-    <loc>http://example.com/2023/11/16/%E6%88%91%E4%B8%8EChatGpt%E7%9A%84%E6%97%A5%E5%B8%B8%E5%AF%B9%E8%AF%9D/</loc>
-    <lastmod>2023-11-16</lastmod>
   </url>
   <url>
     <loc>http://example.com/2023/10/19/Git%E5%B8%B8%E7%94%A8%E5%91%BD%E4%BB%A4/</loc>
