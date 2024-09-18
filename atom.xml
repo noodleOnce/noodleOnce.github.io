@@ -6,7 +6,7 @@
   <link href="http://example.com/atom.xml" rel="self"/>
   
   <link href="http://example.com/"/>
-  <updated>2024-06-13T02:56:47.831Z</updated>
+  <updated>2024-09-18T03:31:49.720Z</updated>
   <id>http://example.com/</id>
   
   <author>
@@ -17,13 +17,36 @@
   <generator uri="https://hexo.io/">Hexo</generator>
   
   <entry>
+    <title>Mysql中DATE,DATETIME,和TIMESTAMP 的区别</title>
+    <link href="http://example.com/2024/09/18/Mysql%E4%B8%ADDATE-DATETIME-%E5%92%8CTIMESTAMP-%E7%9A%84%E5%8C%BA%E5%88%AB/"/>
+    <id>http://example.com/2024/09/18/Mysql%E4%B8%ADDATE-DATETIME-%E5%92%8CTIMESTAMP-%E7%9A%84%E5%8C%BA%E5%88%AB/</id>
+    <published>2024-09-18T03:21:53.000Z</published>
+    <updated>2024-09-18T03:31:49.720Z</updated>
+    
+    <content type="html"><![CDATA[<h3 id="1-DATE"><a href="#1-DATE" class="headerlink" title="1. DATE"></a>1. <strong><code>DATE</code></strong></h3><ul><li><strong>用途</strong>：只存储日期（年、月、日），不包含时间部分。</li><li><strong>格式</strong>：<code>YYYY-MM-DD</code></li><li><strong>范围</strong>：从 <code>1000-01-01</code> 到 <code>9999-12-31</code></li><li><strong>存储</strong>：不存储时区信息，存储的值与时区无关。</li><li><strong>占用字节</strong>：3 字节</li><li><strong>应用场景</strong>：适合只需要存储日期的场景，如出生日期、节假日、预约日期等。</li></ul><h4 id="示例："><a href="#示例：" class="headerlink" title="示例："></a>示例：</h4><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">sql</span><br><span class="line">SELECT DATE(&#x27;2024-09-12&#x27;);</span><br><span class="line">-- 返回: 2024-09-12</span><br></pre></td></tr></table></figure><h3 id="2-DATETIME"><a href="#2-DATETIME" class="headerlink" title="2. DATETIME"></a>2. <strong><code>DATETIME</code></strong></h3><ul><li><strong>用途</strong>：存储日期和时间（年、月、日、时、分、秒），不包含时区。</li><li><strong>格式</strong>：<code>YYYY-MM-DD HH:MM:SS</code></li><li><strong>范围</strong>：从 <code>1000-01-01 00:00:00</code> 到 <code>9999-12-31 23:59:59</code></li><li><strong>存储</strong>：不考虑时区，也不会自动进行时区转换。</li><li><strong>占用字节</strong>：8 字节</li><li><strong>应用场景</strong>：适合需要精确记录某个时刻的场景，但无需考虑时区影响，如事件时间戳、日志记录等。</li></ul><h4 id="示例：-1"><a href="#示例：-1" class="headerlink" title="示例："></a>示例：</h4><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">sql</span><br><span class="line">SELECT DATETIME(&#x27;2024-09-12 14:30:00&#x27;);</span><br><span class="line">-- 返回: 2024-09-12 14:30:00</span><br></pre></td></tr></table></figure><h3 id="3-TIMESTAMP"><a href="#3-TIMESTAMP" class="headerlink" title="3. TIMESTAMP"></a>3. <strong><code>TIMESTAMP</code></strong></h3><ul><li><strong>用途</strong>：存储日期和时间（年、月、日、时、分、秒），包含时区信息。</li><li><strong>格式</strong>：<code>YYYY-MM-DD HH:MM:SS</code></li><li><strong>范围</strong>：从 <code>1970-01-01 00:00:01</code> UTC 到 <code>2038-01-19 03:14:07</code> UTC（32 位整数的范围）。</li><li><strong>存储</strong>：存储的是 UTC 时间，根据连接的时区设置，在存储和检索时会自动转换时区。</li><li><strong>占用字节</strong>：4 字节</li><li><strong>自动更新</strong>：可以使用 <code>CURRENT_TIMESTAMP</code> 来自动存储插入或更新的当前时间。</li><li><strong>应用场景</strong>：适合需要记录具体事件发生的精确时间且需要处理跨时区的场景，比如日志、创建时间和更新时间字段。</li></ul><h4 id="示例：-2"><a href="#示例：-2" class="headerlink" title="示例："></a>示例：</h4><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">sql</span><br><span class="line">SELECT TIMESTAMP(&#x27;2024-09-12 14:30:00&#x27;);</span><br><span class="line">-- 根据服务器时区和客户端时区返回值不同</span><br></pre></td></tr></table></figure><h3 id="主要区别总结："><a href="#主要区别总结：" class="headerlink" title="主要区别总结："></a>主要区别总结：</h3><table><thead><tr><th>特性</th><th><code>DATE</code></th><th><code>DATETIME</code></th><th><code>TIMESTAMP</code></th></tr></thead><tbody><tr><td><strong>存储内容</strong></td><td>仅日期</td><td>日期 + 时间</td><td>日期 + 时间（含时区转换）</td></tr><tr><td><strong>时区相关</strong></td><td>无</td><td>无</td><td>有</td></tr><tr><td><strong>范围</strong></td><td><code>1000-01-01</code> 到 <code>9999-12-31</code></td><td><code>1000-01-01 00:00:00</code> 到 <code>9999-12-31 23:59:59</code></td><td><code>1970-01-01</code> 到 <code>2038-01-19</code></td></tr><tr><td><strong>占用空间</strong></td><td>3 字节</td><td>8 字节</td><td>4 字节</td></tr><tr><td><strong>适用场景</strong></td><td>只需日期</td><td>日期和时间，无需时区转换</td><td>日期和时间，跨时区场景</td></tr></tbody></table><p>选择合适的类型取决于你是否需要时区支持以及存储的日期和时间精度。</p><hr><h3 id="思考："><a href="#思考：" class="headerlink" title="思考："></a>思考：</h3><p>当<strong>2038年</strong>到来时，使用 <code>TIMESTAMP</code> 类型的 MySQL 数据库可能会面临一个问题，这个问题称为<strong>2038年问题</strong>，或者<strong>Unix时间戳溢出问题</strong>。这个问题主要影响以32位有符号整数存储的时间数据。</p><h5 id="为什么会出现2038年问题？"><a href="#为什么会出现2038年问题？" class="headerlink" title="为什么会出现2038年问题？"></a>为什么会出现2038年问题？</h5><ul><li><strong><code>TIMESTAMP</code>类型的存储</strong>：<code>TIMESTAMP</code> 在 MySQL 中基于 Unix 时间戳存储，该时间戳记录自 1970 年 1 月 1 日 UTC 时间的秒数。</li><li><strong>32位有符号整数</strong>：MySQL 的 <code>TIMESTAMP</code> 数据类型传统上使用 32 位有符号整数来存储秒数。32 位有符号整数的最大值为 <code>2147483647</code>，对应的日期时间为 <strong>2038年1月19日 03:14:07 UTC</strong>。</li><li><strong>溢出问题</strong>：当这个时间戳超过 <code>2147483647</code> 时，整数会溢出，无法再表示有效的时间，这将导致日期和时间出现错误，可能回到1970年（或者表现为负数时间）。</li></ul><h5 id="到了2038年会发生什么？"><a href="#到了2038年会发生什么？" class="headerlink" title="到了2038年会发生什么？"></a>到了2038年会发生什么？</h5><ol><li><strong>时间溢出</strong>：到达 <strong>2038年1月19日 03:14:07 UTC</strong> 后，如果 MySQL 依旧使用 32 位 <code>TIMESTAMP</code> 存储，新的 <code>TIMESTAMP</code> 值将无法表示超过这个时间的日期，系统可能会返回错误时间（通常是负数，或回到1970年1月1日）。</li><li><strong>应用和数据崩溃风险</strong>：如果应用程序或数据库依赖这些时间戳，那么在处理超过2038年的时间数据时，可能会发生异常行为、崩溃或者数据丢失。</li></ol><h5 id="解决方案"><a href="#解决方案" class="headerlink" title="解决方案"></a>解决方案</h5><ol><li><strong>升级到64位系统</strong>：64位系统可以扩展时间戳的范围。现代 MySQL 版本在支持 64 位系统上扩展了 <code>TIMESTAMP</code>，这允许存储和处理超出 2038 年的日期。<ul><li><strong>64位整数</strong> 可以表示更长的时间范围，大约是从公元前29万年到公元29万年之间，所以2038年问题在这种情况下不会再发生。</li></ul></li><li><strong>使用 <code>DATETIME</code> 类型</strong>：如果不需要时区转换，也可以将字段类型从 <code>TIMESTAMP</code> 改为 <code>DATETIME</code>。<code>DATETIME</code> 直接存储日期和时间，不依赖 Unix 时间戳，不会遇到2038年问题。<ul><li><strong>注意</strong>：<code>DATETIME</code> 不会在存储或检索时自动转换时区。</li></ul></li><li><strong>及时更新数据库版本</strong>：最新版本的 MySQL 和其他数据库通常已经解决了这个问题，通过使用 64 位时间戳，确保支持超出2038年的时间。</li></ol>]]></content>
+    
+    
+      
+      
+    <summary type="html">&lt;h3 id=&quot;1-DATE&quot;&gt;&lt;a href=&quot;#1-DATE&quot; class=&quot;headerlink&quot; title=&quot;1. DATE&quot;&gt;&lt;/a&gt;1. &lt;strong&gt;&lt;code&gt;DATE&lt;/code&gt;&lt;/strong&gt;&lt;/h3&gt;&lt;ul&gt;
+&lt;li&gt;&lt;strong&gt;用途&lt;/stro</summary>
+      
+    
+    
+    
+    
+    <category term="mysql" scheme="http://example.com/tags/mysql/"/>
+    
+  </entry>
+  
+  <entry>
     <title>自己对管理的理解</title>
     <link href="http://example.com/2024/06/13/%E8%87%AA%E5%B7%B1%E5%AF%B9%E7%AE%A1%E7%90%86%E7%9A%84%E7%90%86%E8%A7%A3/"/>
     <id>http://example.com/2024/06/13/%E8%87%AA%E5%B7%B1%E5%AF%B9%E7%AE%A1%E7%90%86%E7%9A%84%E7%90%86%E8%A7%A3/</id>
     <published>2024-06-13T02:53:58.000Z</published>
-    <updated>2024-06-13T02:56:47.831Z</updated>
+    <updated>2024-09-18T03:32:40.413Z</updated>
     
-    <content type="html"><![CDATA[<h4 id="管理者日常："><a href="#管理者日常：" class="headerlink" title="管理者日常："></a>管理者日常：</h4><ol><li>观察市场动态，竞品分析，领悟上级领导工作指示，寻找公司或部门未来发展方向</li><li>定长远目标、定长远计划</li><li>陪同下属分解目标，分解计划，制定短期目标和计划</li><li>制定规章制定和流程，提升团队效率</li><li>传达工作讲三句话：将结果(目标)、将因果(逻辑)、将后果(价值)</li><li>对待下属：放权、承担、鼓励、帮助</li><li>原则：管理不是自己实现目标，而是引导团队完成目标</li></ol>]]></content>
+    <content type="html"><![CDATA[<h4 id="管理者日常："><a href="#管理者日常：" class="headerlink" title="管理者日常："></a>管理者日常：</h4><ol><li>观察市场动态，竞品分析，领悟上级领导工作指示，寻找公司或部门未来发展方向</li><li>定长远目标、定长远计划</li><li>陪同下属分解目标，分解计划，制定短期目标和计划</li><li>制定规章制定和流程，提升团队效率</li><li>传达工作讲三句话：讲结果(目标)、讲因果(逻辑)、讲后果(价值)</li><li>对待下属：放权、承担、鼓励、帮助</li><li>原则：管理不是自己实现目标，而是引导团队完成目标</li></ol>]]></content>
     
     
       
@@ -455,29 +478,6 @@
     
     
     <category term="java基础" scheme="http://example.com/tags/java%E5%9F%BA%E7%A1%80/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>Git常用命令</title>
-    <link href="http://example.com/2023/10/19/Git%E5%B8%B8%E7%94%A8%E5%91%BD%E4%BB%A4/"/>
-    <id>http://example.com/2023/10/19/Git%E5%B8%B8%E7%94%A8%E5%91%BD%E4%BB%A4/</id>
-    <published>2023-10-18T16:00:00.000Z</published>
-    <updated>2023-11-06T06:44:15.778Z</updated>
-    
-    <content type="html"><![CDATA[<ol><li>查看当前项目的所有远程分支<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">git branch -r</span><br><span class="line"># 如果只想查看远程分支的名称，可以使用 --list 或 -l 选项</span><br><span class="line">git branch -r --list</span><br><span class="line"># 查看当前分支的远程地址</span><br><span class="line">git remote show origin</span><br><span class="line"># 删除远程分支</span><br><span class="line">git push origin --delete feature/branch-1</span><br></pre></td></tr></table></figure></li><li>查看当前项目的所有本地分支<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">git branch </span><br><span class="line"># 如果只想查看远程分支的名称，可以使用 --list 或 -l 选项</span><br><span class="line">git branch --list</span><br><span class="line"># 如果想查看本地分支的详细信息，可以使用 -v 选项</span><br><span class="line">git branch -v</span><br><span class="line"># 删除本地分支</span><br><span class="line">git branch -d feature/branch-1</span><br></pre></td></tr></table></figure></li><li>查看某个分支的最近一次提交<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"># 使用 -1 选项可以限制日志输出为只显示一次提交</span><br><span class="line">git log -1 prod-v3.9.1</span><br></pre></td></tr></table></figure></li><li>查看某个作者的最近一次提交<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"># &lt;author-name&gt; 是你要查找的作者的名称</span><br><span class="line">git log --author=&quot;John Doe&quot; -n 1</span><br></pre></td></tr></table></figure></li><li>查看当前分支某个文件的最近一次提交<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"># HEAD表示最新的提交</span><br><span class="line">git show head src/main/java/com/ylsk/b2b3/service/sys/UserAgentService.java </span><br></pre></td></tr></table></figure></li><li>查看某一次提交的所有文件</li></ol><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"># &lt;commit-hash&gt; 是你要查看的提交的哈希值或引用</span><br><span class="line">git show --name-only 4505f7817a4f56b4e8581ea8985609b7ef47748b</span><br></pre></td></tr></table></figure><ol start="7"><li>查看某一次提交的某个文件的详细内容<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">git show 4505f7817a4f56b4e8581ea8985609b7ef47748b wyt/custMap/CustMapSurveyInfoToESRepo.yml</span><br></pre></td></tr></table></figure></li><li>合并分支<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"># 注意如果有冲突发生，你需要解决冲突并手动提交修改。冲突文件会在合并日志中显示</span><br><span class="line">git merge &lt;other_branch&gt;</span><br></pre></td></tr></table></figure></li><li>暂存当前分支改动<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"># 1.暂存当前分支的改动代码</span><br><span class="line">git stash</span><br><span class="line"># 2.切换到目标分支</span><br><span class="line">git checkout feature/branch-1</span><br><span class="line"># 3.弹出之前分支暂存的改动代码</span><br><span class="line">git stash pop</span><br></pre></td></tr></table></figure></li></ol>]]></content>
-    
-    
-      
-      
-    <summary type="html">&lt;ol&gt;
-&lt;li&gt;查看当前项目的所有远程分支&lt;figure class=&quot;highlight plaintext&quot;&gt;&lt;table&gt;&lt;tr&gt;&lt;td class=&quot;gutter&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line&quot;&gt;1&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;lin</summary>
-      
-    
-    
-    
-    
-    <category term="工具" scheme="http://example.com/tags/%E5%B7%A5%E5%85%B7/"/>
     
   </entry>
   
