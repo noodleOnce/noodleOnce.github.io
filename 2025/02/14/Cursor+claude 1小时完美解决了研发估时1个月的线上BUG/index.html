@@ -1,0 +1,567 @@
+<!DOCTYPE html>
+<html lang=zh>
+<head>
+  <meta charset="utf-8">
+  
+  <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, minimum-scale=1, user-scalable=no, minimal-ui">
+  <meta name="renderer" content="webkit">
+  <meta http-equiv="Cache-Control" content="no-transform" />
+  <meta http-equiv="Cache-Control" content="no-siteapp" />
+  <meta name="apple-mobile-web-app-capable" content="yes">
+  <meta name="apple-mobile-web-app-status-bar-style" content="black">
+  <meta name="format-detection" content="telephone=no,email=no,adress=no">
+  <!-- Color theme for statusbar -->
+  <meta name="theme-color" content="#000000" />
+  <!-- 强制页面在当前窗口以独立页面显示,防止别人在框架里调用页面 -->
+  <meta http-equiv="window-target" content="_top" />
+  
+  
+  <title>Cursor+claude 1小时完美解决了研发估时1个月的线上BUG | 面条</title>
+  <meta name="description" content="问题背景与痛点 💬 用户反馈“iOS 18系统升级后，无法上传证照，直接影响企业认证流程，严重影响业务开展！”   🔨 研发初步评估“涉及相册基础组件改造省级，需要适配新系统API，预计需要1个月时间…”  Cursor + Claude 的精彩对话对话片段1：问题定位12345Human: 现在有个BUG，点击上传按钮，跳转到相册页面，这个页面显示空白。仅限IOS18+系统。Claude:">
+<meta property="og:type" content="article">
+<meta property="og:title" content="Cursor+claude 1小时完美解决了研发估时1个月的线上BUG">
+<meta property="og:url" content="http://example.com/2025/02/14/Cursor+claude%201%E5%B0%8F%E6%97%B6%E5%AE%8C%E7%BE%8E%E8%A7%A3%E5%86%B3%E4%BA%86%E7%A0%94%E5%8F%91%E4%BC%B0%E6%97%B61%E4%B8%AA%E6%9C%88%E7%9A%84%E7%BA%BF%E4%B8%8ABUG/index.html">
+<meta property="og:site_name" content="Hexo">
+<meta property="og:description" content="问题背景与痛点 💬 用户反馈“iOS 18系统升级后，无法上传证照，直接影响企业认证流程，严重影响业务开展！”   🔨 研发初步评估“涉及相册基础组件改造省级，需要适配新系统API，预计需要1个月时间…”  Cursor + Claude 的精彩对话对话片段1：问题定位12345Human: 现在有个BUG，点击上传按钮，跳转到相册页面，这个页面显示空白。仅限IOS18+系统。Claude:">
+<meta property="og:locale" content="zh_CN">
+<meta property="article:published_time" content="2025-02-14T07:33:47.000Z">
+<meta property="article:modified_time" content="2025-02-14T07:44:29.268Z">
+<meta property="article:author" content="John Doe">
+<meta property="article:tag" content="AI编程">
+<meta name="twitter:card" content="summary">
+  <!-- Canonical links -->
+  <link rel="canonical" href="http://example.com/2025/02/14/Cursor+claude%201%E5%B0%8F%E6%97%B6%E5%AE%8C%E7%BE%8E%E8%A7%A3%E5%86%B3%E4%BA%86%E7%A0%94%E5%8F%91%E4%BC%B0%E6%97%B61%E4%B8%AA%E6%9C%88%E7%9A%84%E7%BA%BF%E4%B8%8ABUG/index.html">
+  
+    <link rel="alternate" href="/atom.xml" title="Hexo" type="application/atom+xml">
+  
+  
+    <link rel="icon" href="/favicon.png" type="image/x-icon">
+  
+  
+<link rel="stylesheet" href="/css/style.css">
+
+  
+  
+  
+  
+<meta name="generator" content="Hexo 6.3.0"></head>
+
+
+<body class="main-center" itemscope itemtype="http://schema.org/WebPage">
+  <header class="header" itemscope itemtype="http://schema.org/WPHeader">
+  <div class="slimContent">
+    <div class="navbar-header">
+      
+      
+      <div class="profile-block text-center">
+        <a id="avatar" href="https://github.com/noodleOnce" target="_blank">
+          <img class="img-circle img-rotate" src="/images/avatar.jpg" width="200" height="200">
+        </a>
+        <h2 id="name" class="hidden-xs hidden-sm">面条</h2>
+        <h3 id="title" class="hidden-xs hidden-sm hidden-md">Java &amp; 管理</h3>
+        <small id="location" class="text-muted hidden-xs hidden-sm"><i class="icon icon-map-marker"></i> 武汉, 中国</small>
+      </div>
+      
+      <div class="search" id="search-form-wrap">
+
+    <form class="search-form sidebar-form">
+        <div class="input-group">
+            <input type="text" class="search-form-input form-control" placeholder="搜索" />
+            <span class="input-group-btn">
+                <button type="submit" class="search-form-submit btn btn-flat" onclick="return false;"><i class="icon icon-search"></i></button>
+            </span>
+        </div>
+    </form>
+    <div class="ins-search">
+  <div class="ins-search-mask"></div>
+  <div class="ins-search-container">
+    <div class="ins-input-wrapper">
+      <input type="text" class="ins-search-input" placeholder="想要查找什么..." x-webkit-speech />
+      <button type="button" class="close ins-close ins-selectable" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">×</span></button>
+    </div>
+    <div class="ins-section-wrapper">
+      <div class="ins-section-container"></div>
+    </div>
+  </div>
+</div>
+
+
+</div>
+      <button class="navbar-toggle collapsed" type="button" data-toggle="collapse" data-target="#main-navbar" aria-controls="main-navbar" aria-expanded="false">
+        <span class="sr-only">Toggle navigation</span>
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+      </button>
+    </div>
+    <nav id="main-navbar" class="collapse navbar-collapse" itemscope itemtype="http://schema.org/SiteNavigationElement" role="navigation">
+      <ul class="nav navbar-nav main-nav ">
+        
+        
+        <li class="menu-item menu-item-home">
+          <a href="/.">
+            
+            <i class="icon icon-home-fill"></i>
+            
+            <span class="menu-title">首页</span>
+          </a>
+        </li>
+        
+        
+        <li class="menu-item menu-item-archives">
+          <a href="/archives">
+            
+            <i class="icon icon-archives-fill"></i>
+            
+            <span class="menu-title">归档</span>
+          </a>
+        </li>
+        
+        
+        <li class="menu-item menu-item-categories">
+          <a href="/categories">
+            
+            <i class="icon icon-folder"></i>
+            
+            <span class="menu-title">分类</span>
+          </a>
+        </li>
+        
+        
+        <li class="menu-item menu-item-tags">
+          <a href="/tags">
+            
+            <i class="icon icon-tags"></i>
+            
+            <span class="menu-title">标签</span>
+          </a>
+        </li>
+        
+        
+        <li class="menu-item menu-item-repository">
+          <a href="/repository">
+            
+            <i class="icon icon-project"></i>
+            
+            <span class="menu-title">项目</span>
+          </a>
+        </li>
+        
+        
+        <li class="menu-item menu-item-books">
+          <a href="/books">
+            
+            <i class="icon icon-book-fill"></i>
+            
+            <span class="menu-title">书单</span>
+          </a>
+        </li>
+        
+        
+        <li class="menu-item menu-item-links">
+          <a href="/links">
+            
+            <i class="icon icon-friendship"></i>
+            
+            <span class="menu-title">友链</span>
+          </a>
+        </li>
+        
+        
+        <li class="menu-item menu-item-about">
+          <a href="/about">
+            
+            <i class="icon icon-cup-fill"></i>
+            
+            <span class="menu-title">关于</span>
+          </a>
+        </li>
+        
+      </ul>
+      
+    </nav>
+  </div>
+</header>
+
+  
+    <aside class="sidebar" itemscope itemtype="http://schema.org/WPSideBar">
+  <div class="slimContent">
+    
+      <div class="widget">
+    <h3 class="widget-title">公告</h3>
+    <div class="widget-body">
+        <div id="board">
+            <div class="content">
+                <p>不用在意他人怎么看，你没有观众的</p>
+            </div>
+        </div>
+    </div>
+</div>
+
+    
+      
+
+    
+      
+  <div class="widget">
+    <h3 class="widget-title">标签</h3>
+    <div class="widget-body">
+      <ul class="tag-list" itemprop="keywords"><li class="tag-list-item"><a class="tag-list-link" href="/tags/AI%E7%BC%96%E7%A8%8B/" rel="tag">AI编程</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/java%E5%9F%BA%E7%A1%80/" rel="tag">java基础</a><span class="tag-list-count">2</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/mysql/" rel="tag">mysql</a><span class="tag-list-count">3</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E5%8E%86%E5%8F%B2/" rel="tag">历史</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E5%B7%A5%E5%85%B7/" rel="tag">工具</a><span class="tag-list-count">6</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E6%8A%80%E6%9C%AF%E8%AE%BE%E8%AE%A1/" rel="tag">技术设计</a><span class="tag-list-count">3</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E7%AC%94%E8%AE%B0/" rel="tag">笔记</a><span class="tag-list-count">6</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E7%AE%A1%E7%90%86/" rel="tag">管理</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E7%BD%91%E7%BB%9C/" rel="tag">网络</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E9%A1%B9%E7%9B%AE%E7%AE%A1%E7%90%86/" rel="tag">项目管理</a><span class="tag-list-count">3</span></li></ul>
+    </div>
+  </div>
+
+
+    
+      
+  <div class="widget">
+    <h3 class="widget-title">标签云</h3>
+    <div class="widget-body tagcloud">
+      <a href="/tags/AI%E7%BC%96%E7%A8%8B/" style="font-size: 13px;">AI编程</a> <a href="/tags/java%E5%9F%BA%E7%A1%80/" style="font-size: 13.33px;">java基础</a> <a href="/tags/mysql/" style="font-size: 13.67px;">mysql</a> <a href="/tags/%E5%8E%86%E5%8F%B2/" style="font-size: 13px;">历史</a> <a href="/tags/%E5%B7%A5%E5%85%B7/" style="font-size: 14px;">工具</a> <a href="/tags/%E6%8A%80%E6%9C%AF%E8%AE%BE%E8%AE%A1/" style="font-size: 13.67px;">技术设计</a> <a href="/tags/%E7%AC%94%E8%AE%B0/" style="font-size: 14px;">笔记</a> <a href="/tags/%E7%AE%A1%E7%90%86/" style="font-size: 13px;">管理</a> <a href="/tags/%E7%BD%91%E7%BB%9C/" style="font-size: 13px;">网络</a> <a href="/tags/%E9%A1%B9%E7%9B%AE%E7%AE%A1%E7%90%86/" style="font-size: 13.67px;">项目管理</a>
+    </div>
+  </div>
+
+    
+      
+  <div class="widget">
+    <h3 class="widget-title">归档</h3>
+    <div class="widget-body">
+      <ul class="archive-list"><li class="archive-list-item"><a class="archive-list-link" href="/archives/2025/02/">二月 2025</a><span class="archive-list-count">1</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2025/01/">一月 2025</a><span class="archive-list-count">1</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2024/12/">十二月 2024</a><span class="archive-list-count">1</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2024/09/">九月 2024</a><span class="archive-list-count">2</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2024/06/">六月 2024</a><span class="archive-list-count">1</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2024/05/">五月 2024</a><span class="archive-list-count">6</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2024/04/">四月 2024</a><span class="archive-list-count">1</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2024/01/">一月 2024</a><span class="archive-list-count">3</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2023/11/">十一月 2023</a><span class="archive-list-count">4</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2023/10/">十月 2023</a><span class="archive-list-count">5</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2023/03/">三月 2023</a><span class="archive-list-count">2</span></li></ul>
+    </div>
+  </div>
+
+
+    
+      
+  <div class="widget">
+    <h3 class="widget-title">最新文章</h3>
+    <div class="widget-body">
+      <ul class="recent-post-list list-unstyled no-thumbnail">
+        
+          <li>
+            
+            <div class="item-inner">
+              <p class="item-category">
+                
+              </p>
+              <p class="item-title">
+                <a href="/2025/02/14/Cursor+claude%201%E5%B0%8F%E6%97%B6%E5%AE%8C%E7%BE%8E%E8%A7%A3%E5%86%B3%E4%BA%86%E7%A0%94%E5%8F%91%E4%BC%B0%E6%97%B61%E4%B8%AA%E6%9C%88%E7%9A%84%E7%BA%BF%E4%B8%8ABUG/" class="title">Cursor+claude 1小时完美解决了研发估时1个月的线上BUG</a>
+              </p>
+              <p class="item-date">
+                <time datetime="2025-02-14T07:33:47.000Z" itemprop="datePublished">2025-02-14</time>
+              </p>
+            </div>
+          </li>
+          
+          <li>
+            
+            <div class="item-inner">
+              <p class="item-category">
+                
+              </p>
+              <p class="item-title">
+                <a href="/2025/01/06/%E8%B7%A8%E5%9C%B0%E5%8C%BA%E5%A4%96%E7%BD%91%E8%AE%BF%E9%97%AE%E5%86%85%E7%BD%91%E6%9C%8D%E5%8A%A1%E6%A1%88%E4%BE%8B/" class="title">跨地区外网访问内网服务案例</a>
+              </p>
+              <p class="item-date">
+                <time datetime="2025-01-06T05:23:19.000Z" itemprop="datePublished">2025-01-06</time>
+              </p>
+            </div>
+          </li>
+          
+          <li>
+            
+            <div class="item-inner">
+              <p class="item-category">
+                
+              </p>
+              <p class="item-title">
+                <a href="/2024/12/13/Mysql-ON-DUPLICATE-KEY-UPDATE-%E5%92%8C-REPLACE-INTO%E7%9A%84%E5%8C%BA%E5%88%AB/" class="title">Mysql ON DUPLICATE KEY UPDATE 和 REPLACE INTO的区别</a>
+              </p>
+              <p class="item-date">
+                <time datetime="2024-12-13T03:01:47.000Z" itemprop="datePublished">2024-12-13</time>
+              </p>
+            </div>
+          </li>
+          
+          <li>
+            
+            <div class="item-inner">
+              <p class="item-category">
+                
+              </p>
+              <p class="item-title">
+                <a href="/2024/09/18/Mysql-date-add-%E5%87%BD%E6%95%B0%E7%9A%84%E7%94%A8%E6%B3%95/" class="title">Mysql date_add()函数的用法</a>
+              </p>
+              <p class="item-date">
+                <time datetime="2024-09-18T03:37:25.000Z" itemprop="datePublished">2024-09-18</time>
+              </p>
+            </div>
+          </li>
+          
+          <li>
+            
+            <div class="item-inner">
+              <p class="item-category">
+                
+              </p>
+              <p class="item-title">
+                <a href="/2024/09/18/Mysql%E4%B8%ADDATE-DATETIME-%E5%92%8CTIMESTAMP-%E7%9A%84%E5%8C%BA%E5%88%AB/" class="title">Mysql中DATE,DATETIME,和TIMESTAMP 的区别</a>
+              </p>
+              <p class="item-date">
+                <time datetime="2024-09-18T03:21:53.000Z" itemprop="datePublished">2024-09-18</time>
+              </p>
+            </div>
+          </li>
+          
+      </ul>
+    </div>
+  </div>
+  
+
+    
+  </div>
+</aside>
+
+  
+  
+<main class="main" role="main">
+  <div class="content">
+  <article id="post-Cursor+claude 1小时完美解决了研发估时1个月的线上BUG" class="article article-type-post" itemscope itemtype="http://schema.org/BlogPosting">
+    
+    <div class="article-header">
+      
+        
+  
+    <h1 class="article-title" itemprop="name">
+      Cursor+claude 1小时完美解决了研发估时1个月的线上BUG
+    </h1>
+  
+
+      
+      <div class="article-meta">
+        <span class="article-date">
+    <i class="icon icon-calendar-check"></i>
+	<a href="/2025/02/14/Cursor+claude%201%E5%B0%8F%E6%97%B6%E5%AE%8C%E7%BE%8E%E8%A7%A3%E5%86%B3%E4%BA%86%E7%A0%94%E5%8F%91%E4%BC%B0%E6%97%B61%E4%B8%AA%E6%9C%88%E7%9A%84%E7%BA%BF%E4%B8%8ABUG/" class="article-date">
+	  <time datetime="2025-02-14T07:33:47.000Z" itemprop="datePublished">2025-02-14</time>
+	</a>
+</span>
+        
+        
+  <span class="article-tag">
+    <i class="icon icon-tags"></i>
+	<a class="article-tag-link-link" href="/tags/AI%E7%BC%96%E7%A8%8B/" rel="tag">AI编程</a>
+  </span>
+
+
+        
+
+        <span class="post-comment"><i class="icon icon-comment"></i> <a href="/2025/02/14/Cursor+claude%201%E5%B0%8F%E6%97%B6%E5%AE%8C%E7%BE%8E%E8%A7%A3%E5%86%B3%E4%BA%86%E7%A0%94%E5%8F%91%E4%BC%B0%E6%97%B61%E4%B8%AA%E6%9C%88%E7%9A%84%E7%BA%BF%E4%B8%8ABUG/#comments" class="article-comment-link">评论</a></span>
+        
+      </div>
+    </div>
+    <div class="article-entry marked-body" itemprop="articleBody">
+      
+        <h2 id="问题背景与痛点"><a href="#问题背景与痛点" class="headerlink" title="问题背景与痛点"></a>问题背景与痛点</h2><blockquote>
+<p>💬 <strong>用户反馈</strong><br>“iOS 18系统升级后，无法上传证照，直接影响企业认证流程，严重影响业务开展！”</p>
+</blockquote>
+<blockquote>
+<p>🔨 <strong>研发初步评估</strong><br>“涉及相册基础组件改造省级，需要适配新系统API，预计需要1个月时间…”</p>
+</blockquote>
+<h2 id="Cursor-Claude-的精彩对话"><a href="#Cursor-Claude-的精彩对话" class="headerlink" title="Cursor + Claude 的精彩对话"></a>Cursor + Claude 的精彩对话</h2><h3 id="对话片段1：问题定位"><a href="#对话片段1：问题定位" class="headerlink" title="对话片段1：问题定位"></a>对话片段1：问题定位</h3><figure class="highlight text"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">Human: 现在有个BUG，点击上传按钮，跳转到相册页面，这个页面显示空白。仅限IOS18+系统。</span><br><span class="line"></span><br><span class="line">Claude: 让我看看相关代码... 发现控制台输出了关键错误：</span><br><span class="line">&quot;Unsupported fetch for asset collections with type 2 and subtype 2&quot;</span><br><span class="line">这是 iOS 18+ 对相册访问API做了变更导致的...</span><br></pre></td></tr></table></figure>
+
+<h3 id="对话片段2：方案推导"><a href="#对话片段2：方案推导" class="headerlink" title="对话片段2：方案推导"></a>对话片段2：方案推导</h3><figure class="highlight text"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">Human: 编译报错了：Property &#x27;title&#x27; not found on object of type &#x27;HXAlbumModel *&#x27;</span><br><span class="line"></span><br><span class="line">Claude: 这是因为在适配新API时使用了错误的属性名。</span><br><span class="line">让我们修改 HXPhotoManager.m 中的代码：</span><br><span class="line">- 移除 title 属性的使用</span><br><span class="line">- 使用正确的 albumName 属性</span><br><span class="line">- 保持向后兼容...</span><br></pre></td></tr></table></figure>
+
+<h3 id="对话片段3：完整性验证"><a href="#对话片段3：完整性验证" class="headerlink" title="对话片段3：完整性验证"></a>对话片段3：完整性验证</h3><figure class="highlight text"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">Human: 最后再确认这一次改动是组件级的吗，项目中所有使用到照片上传功能的地方都修复了，对吗？</span><br><span class="line"></span><br><span class="line">Claude: 让我分析一下影响范围：</span><br><span class="line">1. 核心改动在 HXWeiboPhotoPicker 组件</span><br><span class="line">2. 影响所有使用该组件的功能</span><br><span class="line">3. 建议全局搜索以下关键词确认...</span><br></pre></td></tr></table></figure>
+
+<h2 id="技术亮点"><a href="#技术亮点" class="headerlink" title="技术亮点"></a>技术亮点</h2><h3 id="1-精准定位"><a href="#1-精准定位" class="headerlink" title="1. 精准定位"></a>1. 精准定位</h3><ul>
+<li>✅ 快速锁定问题根源</li>
+<li>✅ 准确识别API变更影响</li>
+</ul>
+<h3 id="2-优雅方案"><a href="#2-优雅方案" class="headerlink" title="2. 优雅方案"></a>2. 优雅方案</h3><figure class="highlight objc"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">if</span> (@available(iOS <span class="number">18.0</span>, *)) &#123;</span><br><span class="line">    <span class="comment">// 新版本API适配</span></span><br><span class="line">    PHFetchResult *userAlbums = [PHAssetCollection </span><br><span class="line">        fetchAssetCollectionsWithType:PHAssetCollectionTypeSmartAlbum </span><br><span class="line">        subtype:PHAssetCollectionSubtypeSmartAlbumUserLibrary </span><br><span class="line">        options:<span class="literal">nil</span>];</span><br><span class="line">&#125; <span class="keyword">else</span> &#123;</span><br><span class="line">    <span class="comment">// 保持原有逻辑</span></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<h3 id="3-全局思维"><a href="#3-全局思维" class="headerlink" title="3. 全局思维"></a>3. 全局思维</h3><ul>
+<li>🔄 组件级解决方案</li>
+<li>🔄 完整的兼容性考虑</li>
+<li>🔄 清晰的影响范围分析</li>
+</ul>
+<h2 id="解决效果"><a href="#解决效果" class="headerlink" title="解决效果"></a>解决效果</h2><table>
+<thead>
+<tr>
+<th align="center">优化项</th>
+<th align="center">之前</th>
+<th align="center">之后</th>
+</tr>
+</thead>
+<tbody><tr>
+<td align="center">解决时间</td>
+<td align="center">预估1个月</td>
+<td align="center">实际1小时</td>
+</tr>
+<tr>
+<td align="center">代码质量</td>
+<td align="center">版本检查冗余</td>
+<td align="center">优雅降级处理</td>
+</tr>
+<tr>
+<td align="center">兼容性</td>
+<td align="center">仅支持旧版本</td>
+<td align="center">全版本支持</td>
+</tr>
+<tr>
+<td align="center">用户体验</td>
+<td align="center">功能不可用</td>
+<td align="center">完美运行</td>
+</tr>
+</tbody></table>
+<h2 id="Cursor-Claude-的优势"><a href="#Cursor-Claude-的优势" class="headerlink" title="Cursor + Claude 的优势"></a>Cursor + Claude 的优势</h2><h3 id="1-快速理解"><a href="#1-快速理解" class="headerlink" title="1. 快速理解"></a>1. 快速理解</h3><ul>
+<li>🚀 瞬间理解业务场景</li>
+<li>🚀 准确把握技术细节</li>
+</ul>
+<h3 id="2-精准方案"><a href="#2-精准方案" class="headerlink" title="2. 精准方案"></a>2. 精准方案</h3><ul>
+<li>🎯 组件级解决思路</li>
+<li>🎯 优雅的代码实现</li>
+</ul>
+<h3 id="3-全面思考"><a href="#3-全面思考" class="headerlink" title="3. 全面思考"></a>3. 全面思考</h3><ul>
+<li>🔍 考虑兼容性</li>
+<li>🔍 关注影响范围</li>
+<li>🔍 注重代码质量</li>
+</ul>
+<h2 id="结论"><a href="#结论" class="headerlink" title="结论"></a>结论</h2><p>这次问题解决很好地展示了 Cursor + Claude 在技术问题解决中的优势：</p>
+<ul>
+<li>⭐ 快速准确的问题定位</li>
+<li>⭐ 优雅可靠的解决方案</li>
+<li>⭐ 全面周到的考虑</li>
+<li>⭐ 显著的效率提升</li>
+</ul>
+<p>将原本预估需要1个月的问题在1小时内完美解决，不仅展现了 AI 辅助编程的强大能力，也为今后类似问题的解决提供了很好的范例。</p>
+<h2 id="相关文件"><a href="#相关文件" class="headerlink" title="相关文件"></a>相关文件</h2><figure class="highlight text"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">JZTUIKit/JZTUIKit/ThirdParty/HXWeiboPhotoPicker/HXPhotoManager.m</span><br><span class="line">JZT_SUPPLIER/OpenAccount/ViewController/erpSYAuth/JZTErpSYAuthVC.m</span><br><span class="line">JZT_SUPPLIER/OpenAccount/Cell/ErpSYAuthView/JZTAuthCustView.m</span><br><span class="line">JZT_SUPPLIER/OpenAccount/ViewController/ErpSYAuthNew/JZTSYChooseBranchVC.m</span><br><span class="line">JZT_SUPPLIER/OpenAccount/ViewController/ErpSYAuthNew/JZTSYChooseBranchVC.h</span><br></pre></td></tr></table></figure>
+      
+    </div>
+    <div class="article-footer">
+      <blockquote class="mt-2x">
+  <ul class="post-copyright list-unstyled">
+    
+    <li class="post-copyright-link hidden-xs">
+      <strong>本文链接：</strong>
+      <a href="http://example.com/2025/02/14/Cursor+claude%201%E5%B0%8F%E6%97%B6%E5%AE%8C%E7%BE%8E%E8%A7%A3%E5%86%B3%E4%BA%86%E7%A0%94%E5%8F%91%E4%BC%B0%E6%97%B61%E4%B8%AA%E6%9C%88%E7%9A%84%E7%BA%BF%E4%B8%8ABUG/" title="Cursor+claude 1小时完美解决了研发估时1个月的线上BUG" target="_blank" rel="external">http://example.com/2025/02/14/Cursor+claude 1小时完美解决了研发估时1个月的线上BUG/</a>
+    </li>
+    
+    <li class="post-copyright-license">
+      <strong>版权声明： </strong> 本博客所有文章除特别声明外，均采用 <a href="http://creativecommons.org/licenses/by/4.0/deed.zh" target="_blank" rel="external">CC BY 4.0 CN协议</a> 许可协议。转载请注明出处！
+    </li>
+  </ul>
+</blockquote>
+
+
+<div class="panel panel-default panel-badger">
+  <div class="panel-body">
+    <figure class="media">
+      <div class="media-left">
+        <a href="https://github.com/noodleOnce" target="_blank" class="img-burn thumb-sm visible-lg">
+          <img src="/images/avatar.jpg" class="img-rounded w-full" alt="">
+        </a>
+      </div>
+      <div class="media-body">
+        <h3 class="media-heading"><a href="https://github.com/noodleOnce" target="_blank"><span class="text-dark">面条</span><small class="ml-1x">Java &amp; 管理</small></a></h3>
+        <div>芝兰生于深林，不以无人而不芳; 君子修道立德，不谓穷困而改节。</div>
+      </div>
+    </figure>
+  </div>
+</div>
+
+
+    </div>
+  </article>
+  
+    
+  <section id="comments">
+  	
+  </section>
+
+
+  
+</div>
+
+  <nav class="bar bar-footer clearfix" data-stick-bottom>
+  <div class="bar-inner">
+  
+  <ul class="pager pull-left">
+    
+    
+    <li class="next">
+      <a href="/2025/01/06/%E8%B7%A8%E5%9C%B0%E5%8C%BA%E5%A4%96%E7%BD%91%E8%AE%BF%E9%97%AE%E5%86%85%E7%BD%91%E6%9C%8D%E5%8A%A1%E6%A1%88%E4%BE%8B/" title="跨地区外网访问内网服务案例"><span>下一篇&nbsp;&nbsp;</span><i class="icon icon-angle-right" aria-hidden="true"></i></a>
+    </li>
+    
+    
+  </ul>
+  
+  
+  
+  <div class="bar-right">
+    
+  </div>
+  </div>
+</nav>
+  
+
+
+</main>
+
+  <footer class="footer" itemscope itemtype="http://schema.org/WPFooter">
+	
+    <div class="copyright">
+    	
+        <div class="publishby">
+        	Theme by <a href="https://github.com/cofess" target="_blank"> cofess </a>base on <a href="https://github.com/cofess/hexo-theme-pure" target="_blank">pure</a>.
+        </div>
+    </div>
+</footer>
+  <script src="//cdn.jsdelivr.net/npm/jquery@1.12.4/dist/jquery.min.js"></script>
+<script>
+window.jQuery || document.write('<script src="js/jquery.min.js"><\/script>')
+</script>
+
+<script src="/js/plugin.min.js"></script>
+
+
+<script src="/js/application.js"></script>
+
+
+    <script>
+(function (window) {
+    var INSIGHT_CONFIG = {
+        TRANSLATION: {
+            POSTS: '文章',
+            PAGES: '页面',
+            CATEGORIES: '分类',
+            TAGS: '标签',
+            UNTITLED: '(未命名)',
+        },
+        ROOT_URL: '/',
+        CONTENT_URL: '/content.json',
+    };
+    window.INSIGHT_CONFIG = INSIGHT_CONFIG;
+})(window);
+</script>
+
+<script src="/js/insight.js"></script>
+
+
+
+
+
+
+   
+
+
+
+
+   
+
+
+
+
+
+
+</body>
+</html>

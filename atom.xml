@@ -6,7 +6,7 @@
   <link href="http://example.com/atom.xml" rel="self"/>
   
   <link href="http://example.com/"/>
-  <updated>2024-12-13T03:17:14.964Z</updated>
+  <updated>2025-02-14T07:44:29.268Z</updated>
   <id>http://example.com/</id>
   
   <author>
@@ -15,6 +15,52 @@
   </author>
   
   <generator uri="https://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>Cursor+claude 1小时完美解决了研发估时1个月的线上BUG</title>
+    <link href="http://example.com/2025/02/14/Cursor+claude%201%E5%B0%8F%E6%97%B6%E5%AE%8C%E7%BE%8E%E8%A7%A3%E5%86%B3%E4%BA%86%E7%A0%94%E5%8F%91%E4%BC%B0%E6%97%B61%E4%B8%AA%E6%9C%88%E7%9A%84%E7%BA%BF%E4%B8%8ABUG/"/>
+    <id>http://example.com/2025/02/14/Cursor+claude%201%E5%B0%8F%E6%97%B6%E5%AE%8C%E7%BE%8E%E8%A7%A3%E5%86%B3%E4%BA%86%E7%A0%94%E5%8F%91%E4%BC%B0%E6%97%B61%E4%B8%AA%E6%9C%88%E7%9A%84%E7%BA%BF%E4%B8%8ABUG/</id>
+    <published>2025-02-14T07:33:47.000Z</published>
+    <updated>2025-02-14T07:44:29.268Z</updated>
+    
+    <content type="html"><![CDATA[<h2 id="问题背景与痛点"><a href="#问题背景与痛点" class="headerlink" title="问题背景与痛点"></a>问题背景与痛点</h2><blockquote><p>💬 <strong>用户反馈</strong><br>“iOS 18系统升级后，无法上传证照，直接影响企业认证流程，严重影响业务开展！”</p></blockquote><blockquote><p>🔨 <strong>研发初步评估</strong><br>“涉及相册基础组件改造省级，需要适配新系统API，预计需要1个月时间…”</p></blockquote><h2 id="Cursor-Claude-的精彩对话"><a href="#Cursor-Claude-的精彩对话" class="headerlink" title="Cursor + Claude 的精彩对话"></a>Cursor + Claude 的精彩对话</h2><h3 id="对话片段1：问题定位"><a href="#对话片段1：问题定位" class="headerlink" title="对话片段1：问题定位"></a>对话片段1：问题定位</h3><figure class="highlight text"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">Human: 现在有个BUG，点击上传按钮，跳转到相册页面，这个页面显示空白。仅限IOS18+系统。</span><br><span class="line"></span><br><span class="line">Claude: 让我看看相关代码... 发现控制台输出了关键错误：</span><br><span class="line">&quot;Unsupported fetch for asset collections with type 2 and subtype 2&quot;</span><br><span class="line">这是 iOS 18+ 对相册访问API做了变更导致的...</span><br></pre></td></tr></table></figure><h3 id="对话片段2：方案推导"><a href="#对话片段2：方案推导" class="headerlink" title="对话片段2：方案推导"></a>对话片段2：方案推导</h3><figure class="highlight text"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">Human: 编译报错了：Property &#x27;title&#x27; not found on object of type &#x27;HXAlbumModel *&#x27;</span><br><span class="line"></span><br><span class="line">Claude: 这是因为在适配新API时使用了错误的属性名。</span><br><span class="line">让我们修改 HXPhotoManager.m 中的代码：</span><br><span class="line">- 移除 title 属性的使用</span><br><span class="line">- 使用正确的 albumName 属性</span><br><span class="line">- 保持向后兼容...</span><br></pre></td></tr></table></figure><h3 id="对话片段3：完整性验证"><a href="#对话片段3：完整性验证" class="headerlink" title="对话片段3：完整性验证"></a>对话片段3：完整性验证</h3><figure class="highlight text"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">Human: 最后再确认这一次改动是组件级的吗，项目中所有使用到照片上传功能的地方都修复了，对吗？</span><br><span class="line"></span><br><span class="line">Claude: 让我分析一下影响范围：</span><br><span class="line">1. 核心改动在 HXWeiboPhotoPicker 组件</span><br><span class="line">2. 影响所有使用该组件的功能</span><br><span class="line">3. 建议全局搜索以下关键词确认...</span><br></pre></td></tr></table></figure><h2 id="技术亮点"><a href="#技术亮点" class="headerlink" title="技术亮点"></a>技术亮点</h2><h3 id="1-精准定位"><a href="#1-精准定位" class="headerlink" title="1. 精准定位"></a>1. 精准定位</h3><ul><li>✅ 快速锁定问题根源</li><li>✅ 准确识别API变更影响</li></ul><h3 id="2-优雅方案"><a href="#2-优雅方案" class="headerlink" title="2. 优雅方案"></a>2. 优雅方案</h3><figure class="highlight objc"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">if</span> (@available(iOS <span class="number">18.0</span>, *)) &#123;</span><br><span class="line">    <span class="comment">// 新版本API适配</span></span><br><span class="line">    PHFetchResult *userAlbums = [PHAssetCollection </span><br><span class="line">        fetchAssetCollectionsWithType:PHAssetCollectionTypeSmartAlbum </span><br><span class="line">        subtype:PHAssetCollectionSubtypeSmartAlbumUserLibrary </span><br><span class="line">        options:<span class="literal">nil</span>];</span><br><span class="line">&#125; <span class="keyword">else</span> &#123;</span><br><span class="line">    <span class="comment">// 保持原有逻辑</span></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure><h3 id="3-全局思维"><a href="#3-全局思维" class="headerlink" title="3. 全局思维"></a>3. 全局思维</h3><ul><li>🔄 组件级解决方案</li><li>🔄 完整的兼容性考虑</li><li>🔄 清晰的影响范围分析</li></ul><h2 id="解决效果"><a href="#解决效果" class="headerlink" title="解决效果"></a>解决效果</h2><table><thead><tr><th align="center">优化项</th><th align="center">之前</th><th align="center">之后</th></tr></thead><tbody><tr><td align="center">解决时间</td><td align="center">预估1个月</td><td align="center">实际1小时</td></tr><tr><td align="center">代码质量</td><td align="center">版本检查冗余</td><td align="center">优雅降级处理</td></tr><tr><td align="center">兼容性</td><td align="center">仅支持旧版本</td><td align="center">全版本支持</td></tr><tr><td align="center">用户体验</td><td align="center">功能不可用</td><td align="center">完美运行</td></tr></tbody></table><h2 id="Cursor-Claude-的优势"><a href="#Cursor-Claude-的优势" class="headerlink" title="Cursor + Claude 的优势"></a>Cursor + Claude 的优势</h2><h3 id="1-快速理解"><a href="#1-快速理解" class="headerlink" title="1. 快速理解"></a>1. 快速理解</h3><ul><li>🚀 瞬间理解业务场景</li><li>🚀 准确把握技术细节</li></ul><h3 id="2-精准方案"><a href="#2-精准方案" class="headerlink" title="2. 精准方案"></a>2. 精准方案</h3><ul><li>🎯 组件级解决思路</li><li>🎯 优雅的代码实现</li></ul><h3 id="3-全面思考"><a href="#3-全面思考" class="headerlink" title="3. 全面思考"></a>3. 全面思考</h3><ul><li>🔍 考虑兼容性</li><li>🔍 关注影响范围</li><li>🔍 注重代码质量</li></ul><h2 id="结论"><a href="#结论" class="headerlink" title="结论"></a>结论</h2><p>这次问题解决很好地展示了 Cursor + Claude 在技术问题解决中的优势：</p><ul><li>⭐ 快速准确的问题定位</li><li>⭐ 优雅可靠的解决方案</li><li>⭐ 全面周到的考虑</li><li>⭐ 显著的效率提升</li></ul><p>将原本预估需要1个月的问题在1小时内完美解决，不仅展现了 AI 辅助编程的强大能力，也为今后类似问题的解决提供了很好的范例。</p><h2 id="相关文件"><a href="#相关文件" class="headerlink" title="相关文件"></a>相关文件</h2><figure class="highlight text"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">JZTUIKit/JZTUIKit/ThirdParty/HXWeiboPhotoPicker/HXPhotoManager.m</span><br><span class="line">JZT_SUPPLIER/OpenAccount/ViewController/erpSYAuth/JZTErpSYAuthVC.m</span><br><span class="line">JZT_SUPPLIER/OpenAccount/Cell/ErpSYAuthView/JZTAuthCustView.m</span><br><span class="line">JZT_SUPPLIER/OpenAccount/ViewController/ErpSYAuthNew/JZTSYChooseBranchVC.m</span><br><span class="line">JZT_SUPPLIER/OpenAccount/ViewController/ErpSYAuthNew/JZTSYChooseBranchVC.h</span><br></pre></td></tr></table></figure>]]></content>
+    
+    
+      
+      
+    <summary type="html">&lt;h2 id=&quot;问题背景与痛点&quot;&gt;&lt;a href=&quot;#问题背景与痛点&quot; class=&quot;headerlink&quot; title=&quot;问题背景与痛点&quot;&gt;&lt;/a&gt;问题背景与痛点&lt;/h2&gt;&lt;blockquote&gt;
+&lt;p&gt;💬 &lt;strong&gt;用户反馈&lt;/strong&gt;&lt;br&gt;“iOS 18系统</summary>
+      
+    
+    
+    
+    
+    <category term="AI编程" scheme="http://example.com/tags/AI%E7%BC%96%E7%A8%8B/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>跨地区外网访问内网服务案例</title>
+    <link href="http://example.com/2025/01/06/%E8%B7%A8%E5%9C%B0%E5%8C%BA%E5%A4%96%E7%BD%91%E8%AE%BF%E9%97%AE%E5%86%85%E7%BD%91%E6%9C%8D%E5%8A%A1%E6%A1%88%E4%BE%8B/"/>
+    <id>http://example.com/2025/01/06/%E8%B7%A8%E5%9C%B0%E5%8C%BA%E5%A4%96%E7%BD%91%E8%AE%BF%E9%97%AE%E5%86%85%E7%BD%91%E6%9C%8D%E5%8A%A1%E6%A1%88%E4%BE%8B/</id>
+    <published>2025-01-06T05:23:19.000Z</published>
+    <updated>2025-02-14T07:58:50.675Z</updated>
+    
+    <content type="html"><![CDATA[<h3 id="背景-："><a href="#背景-：" class="headerlink" title="背景 ："></a>背景 ：</h3><p>成都财务的电脑需要访问海南内网的数据库</p><h4 id="初始方案"><a href="#初始方案" class="headerlink" title="初始方案"></a>初始方案</h4><ol><li>海南的数据库所在电脑安装内网穿透工具，暴露出的域名与备案服务器公网IP绑定</li><li>备案服务器添加安全组default</li><li>安全组添加入网规则，配置允许访问的协议端口7002，源地址选择地址组warnAccess</li><li>在warnAccess地址组添加成都袁梅电脑外网IP地址，实现用户需求</li></ol><p>但是袁梅的外网IP地址是动态的，不是固定的。于是就有了以下优化方案：</p><h4 id="优化方案"><a href="#优化方案" class="headerlink" title="优化方案"></a>优化方案</h4><ol><li>海南的数据库所在电脑安装内网穿透工具，暴露出的域名与备案服务器公网IP绑定</li><li>备案服务器添加安全组default</li><li>安全组添加入网规则，配置允许访问的协议端口7002，源地址选择地址组warnAccess</li><li>地址组warnAccess添加武汉VPN的IP地址（***.<strong>.</strong>.** 固定的）</li><li>武汉VPN给财务添加新账号</li><li>给财务的vpn账号配置数据库的IP路由</li><li>财务在本机链接VPN，实现需求</li></ol>]]></content>
+    
+    
+      
+      
+    <summary type="html">&lt;h3 id=&quot;背景-：&quot;&gt;&lt;a href=&quot;#背景-：&quot; class=&quot;headerlink&quot; title=&quot;背景 ：&quot;&gt;&lt;/a&gt;背景 ：&lt;/h3&gt;&lt;p&gt;成都财务的电脑需要访问海南内网的数据库&lt;/p&gt;
+&lt;h4 id=&quot;初始方案&quot;&gt;&lt;a href=&quot;#初始方案&quot; class=&quot;h</summary>
+      
+    
+    
+    
+    
+    <category term="网络" scheme="http://example.com/tags/%E7%BD%91%E7%BB%9C/"/>
+    
+  </entry>
   
   <entry>
     <title>Mysql ON DUPLICATE KEY UPDATE 和 REPLACE INTO的区别</title>
@@ -114,7 +160,7 @@
     <link href="http://example.com/2024/05/29/%E7%AE%A1%E7%90%86%E5%88%B0%E5%BA%95%E7%AE%A1%E4%BB%80%E4%B9%88%EF%BC%9F/"/>
     <id>http://example.com/2024/05/29/%E7%AE%A1%E7%90%86%E5%88%B0%E5%BA%95%E7%AE%A1%E4%BB%80%E4%B9%88%EF%BC%9F/</id>
     <published>2024-05-29T01:21:35.000Z</published>
-    <updated>2024-05-29T02:33:11.131Z</updated>
+    <updated>2025-02-14T07:45:36.602Z</updated>
     
     <content type="html"><![CDATA[<blockquote><p><a href="https://mp.weixin.qq.com/s/_EM7gfmEzhPH0-dYngQAZg">原文:https://mp.weixin.qq.com/s/_EM7gfmEzhPH0-dYngQAZg</a></p></blockquote><p><span style='color: #1a8bc8; font-size: 25px;font-weight: bold;' >管理</span></p><p>这个词大家一点都不陌生，但是，到底什么是管理？管什么？理什么？却是众说纷纭，很多人认为，管理就是“管人”和“理事”，还有人说是“管事”和“理人”，这么理解固然无错，但个人认为，这很抽象和片面。我记得我第一次读到彼得德鲁克先生关于管理的理解的时候，那叫一种震撼，就像是被什么东西击中了一样，他说，管理的本质就是<strong>“激发善意”</strong>。“科学管理之父”泰罗认为：“管理就是确切地知道你要别人干什么，并使他用最好的方法去干”。那么，对于一个组织来说，到底是管什么？理什么呢？</p><hr><p><span style='color: #1a8bc8; font-size: 20px;font-weight: bold;' >01管理模型图</span><br>管理模型长什么样子的呢？管理模型是指企业为实现其经营目标的组织资源、生产经营活动的基本框架和方式。通俗来讲就是企业管理套路，有了这个套路，避免从头开始进行摸索，管理模型的作用就是抽象和概括管理的思想和框架，在这个思想和框架下建立一系列管理体系。</p><p><img src="/../imgs/2901.jpg" alt="2901"></p><hr><p><span style='color: #1a8bc8; font-size: 20px;font-weight: bold;' >02 管理中的“四管</span></p><p>管理有四大基本职能，分别是计划、组织、领导和控制。它们是管理过程中不可或缺的要素。无论是企业组织、团队、机构还是其他组织形式，都需要应用这四大职能来实现组织目标、优化资源利用和协调各项工作。</p><p><img src="/../imgs/2902.jpg" alt="2902"></p><p><strong>1.管住“人”的行为</strong><br>管理最核心的就是对人的管理。管人要管什么？——思想和行为。人的管理最终要落实在人的<strong>思想和行为</strong>上，思想决定行为，思路决定出路。人的思想和行为直接影响着工作质量和工作效率。行为受到意识、技能和标准的制约。所以，要通过岗位素质要求、标准化作业、技能培训、检查、指导、考核、激励和沟通等方式规范和约束人的行为。</p><p><strong>2.管住“物”的状态</strong><br>物的状态分三个方面，一是存在状态、二是防护状态、三是账目状态。国内当前很多企业不断推起精益成本理念的学习，其中一个重要原因就是想有效实施“物的状态”管理，从根本上消除各类浪费。我们应当应从建章立制、信息化建设、可视化监控、内部评审等方面加强物的管理。</p><p><strong>3.管住“事”的结果。</strong><br>企业管理过程中，最为常用的一就是PDCA闭环管理法，任何事情要遵循“计划、实施、检查、处置”的完整闭环。管住“事的结果”，常规来说，就是抓好执行力，做到<strong>“五有五必有”</strong>（有工作必有目标、有目标必有方案、有方案必有方计划、有计划必有检查、有检查必有结果）。在管理活动中，本着四不放过和PDCA原则的同时，善于运用先进的管理工具（如防呆改善、QC、A3、8D报告、审核评价）等方法做好“事”的管理。</p><p><strong>4.管住“钱”的效率</strong><br>钱的效率主要体现在两个方面，<strong>一是钱要用在该用的地方</strong>。需要用钱的地方得要评估评审，花掉多少不是问题，花得值不值才是关键，杜绝大手大脚造成不必要的浪费。<strong>二是堵住钱的漏洞</strong>。企业得有严格的审批流程及权限设置、从企业的预算管理、采购系统、物流系统等方面必须得有制约机制、内部审计、会计监督，加强“钱”的使用和监督管理。</p><hr><p><span style='color: #1a8bc8; font-size: 20px;font-weight: bold;' >03 管理过程中的“八理</span></p><p>一个组织或团队，面对“人、事、物、资、时、效”等管理要素，要理的东西特别多，各个环节错综复杂，那到底要理什么，作为管理者抓得住命脉，否则你就是累死也理不清楚，干不出成效。</p><p><img src="/../imgs/2903.jpg" alt="2903"></p><p><strong>1.把战略理“优”。</strong><br>企业的战略定位和战略规划是企业方向和命脉，是企业持续、健康发展的关键。所以、我们应该从企业的战略使命和愿景出发，运用科学和系统的分析方法，如SWOT分析，对公司自身的竞争优势、劣势、机会和威胁进行分析，从而将公司的战略与公司的内部资源、外部环境有机结合起来。并形成公司的战略规划，对战略进行实施和控制。</p><p><img src="/../imgs/2904.jpg" alt="2904"></p><p><strong>2.把目标理“准”。</strong></p><p>企业要战略愿景及规划，必须建立起内部科学、系统的目标管理体系。按照中长期和短期进行目标制定，从上而下层层分解，从下而上逐级支撑，把目标分解到最小单元，落实到每一个具体的作业层面。<strong>目标管理的核心是“精”</strong>——抓住关键的重点项。而不是“多”，目标太多，并不是好事，土话说“眉毛胡子一把抓”，反而把自己搞得手忙脚乱。这里给大家推荐目标管理的SMART原则。</p><p><img src="/../imgs/2905.jpg" alt="2905"></p><p><strong>3.把风险理“低”。</strong><br>企业在经营过程中，会遇到来自内部和外部的各种风险，这些风险包括政策的变化、市场的波动、产品、财务及运营带来的风险。这些风险如果不及时识别和控制，会给企业带来不可估量的，甚至是灾难性损失。所以，应该按照相关标准要求，建立公司的风险防范机制。</p><p><strong>4.把制度理“通”。</strong><br>一个健康的企业要法制，不要人治，<strong>制度是最好的领导</strong>。制度管理远比人的管理要规范、有序和效率。但是，很多企业和管理者不善于建章立制，把工作要求和标准停留在口头上，时间久了，就会带来政令上朝令夕改、执行上大打折扣。其次，即使有制度，也是泛泛而谈，全是纲领性的文字，根本不能落地。所以，建章立制上应着力解决好管理制度的“合理、适用”问题。把制度建完整，把节点理通，这样才能“有法可依，有法必依”。</p><p><strong>5.把职责理“清”。</strong><br>任何工作都应遵循<strong>“职责明确、目标清晰”</strong>的八字原则，任何管理工作都应该把责任明确到个人头上，不要交叉负责，否则，大家管大家都不管。明确职责的同时要把目标量化，要有时限和可量化的数字标准，同时，职责要和管理制度、手册、程序有机结合。否则，带来的将是推诿扯皮。通常情况下，推诿扯皮的理由是：<strong>不知道该谁干、不知道怎么干、不知道何时干、不知道干到什么程度。</strong></p><p><strong>6.把流程理“顺”。</strong><br>流程一定要跟“权”和“责”结合起来，并和时间目标和绩效考核挂钩，这样才能提高流程效率。很多企业机构设置臃肿、流程与业务不匹配办事拖拉、环节过多审批繁琐、流程不透明，无法监督而效率低下。所以，应通过分级流程图明确责任，必要时可以结合办公自动化系统提高流程速度。</p><p><strong>7.把标准理“精”。</strong><br>作业标准<strong>“模板化”</strong>是指导员工规范、高效作业的依据，是是员工技能快速均衡较好的方法。生产和管理过程中产生的各种浪费、工作效率低下等问题，与企业缺乏可操作性的作业标准有很大的关系。应按照标准化、精细化、目视化管理的要求，建立简洁、明了、可操作的作业标准。</p><p><strong>8.把信息理“畅”。</strong><br>企业管理过程有三个流：<strong>人流、物流和信息流</strong>。其中，信息流对数据分析、问题发现、正确决策、过程控制、绩效考核、持续改进起着至关重要的作用。我们应该明确信息需求、信息传递方式及传递渠道，让各级决策者能及时了解有关生产和经营信息。如果有条件，可以通过Mes、ERP等信息系统进行信息流的管理。</p>]]></content>
     
@@ -434,51 +480,6 @@
     
     
     <category term="笔记" scheme="http://example.com/tags/%E7%AC%94%E8%AE%B0/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>Bug等级划分</title>
-    <link href="http://example.com/2023/10/31/Bug%E7%AD%89%E7%BA%A7%E5%88%92%E5%88%86/"/>
-    <id>http://example.com/2023/10/31/Bug%E7%AD%89%E7%BA%A7%E5%88%92%E5%88%86/</id>
-    <published>2023-10-30T16:00:00.000Z</published>
-    <updated>2023-10-31T03:38:30.439Z</updated>
-    
-    <content type="html"><![CDATA[<h3 id=""><a href="#" class="headerlink" title=""></a><img src="/../imgs/MBXY-CR-c51b850c4468f671173af5a5300758de.png" alt="MBXY-CR-c51b850c4468f671173af5a5300758de"></h3><h3 id="软件Bug的来源"><a href="#软件Bug的来源" class="headerlink" title="软件Bug的来源"></a>软件Bug的来源</h3><p>Bug，原意为虫子，现在通常指软件缺陷、故障、问题等。</p><p>第一代计算机是由许多庞大且昂贵的继电器组成，并利用大量的电力来使继电器工作。可能正是由于计算机运行产生的光和热，引得一只小虫子Bug钻进了一支继电器内，导致整个计算机无法工作。</p><p>研究人员费了半天时间，总算发现原因所在，把这只小虫子从继电器中取出后，计算机又恢复正常。后来，Bug这个名词就沿用下来，表示电脑系统或程序中隐藏的错误、缺陷，漏洞或问题。</p><h3 id="软件Bug的等级"><a href="#软件Bug的等级" class="headerlink" title="软件Bug的等级"></a>软件Bug的等级</h3><p>软件bug一般分为四种或五种等级，不同的软件领域，划分的可能略有差异，但大同小异。</p><p><span style="color:red">一级（致命）Bug</span></p><p>通常表现为：主流程无法跑通，系统无法运行，崩溃或严重资源不足，应用模块无法启动或异常退出，主要功能模块无法使用。</p><p>比如：</p><p>1.内存泄漏；</p><p>2.严重的数值计算错误；</p><p>3.系统容易崩溃；</p><p>4.功能设计与需求严重不符；</p><p>5.系统无法登陆；</p><p>6.循坏报错，无法正常退出。</p><p><span style="color:red">二级（严重）Bug</span><br>通常表现为：影响系统功能或操作，主要功能存在严重缺陷，但不会影响到系统稳定性。</p><p>比如：<br>1.功能未实现；<br>2.功能存在报错；<br>3.数值轻微的计算错误。</p><p><span style="color:red">三级（一般）Bug</span><br>通常表现为：界面、性能缺陷。</p><p>比如：<br>1.边界条件下错误；<br>2.容错性不好；<br>3.大数据下容易无响应；<br>4.大数据操作时，没有提供进度条。</p><p><span style="color:red">四级（提示）Bug</span><br>通常表现为：易用性及建议性问题<br>比如：<br>1.界面颜色搭配不好；<br>2.文字排列不整齐；<br>3.出现错别字，但是不影响功能；<br>4.界面格式不规范。</p>]]></content>
-    
-    
-      
-      
-    <summary type="html">&lt;h3 id=&quot;&quot;&gt;&lt;a href=&quot;#&quot; class=&quot;headerlink&quot; title=&quot;&quot;&gt;&lt;/a&gt;&lt;img src=&quot;/../imgs/MBXY-CR-c51b850c4468f671173af5a5300758de.png&quot; alt=&quot;MBXY-CR-c51b850c</summary>
-      
-    
-    
-    
-    
-    <category term="项目管理" scheme="http://example.com/tags/%E9%A1%B9%E7%9B%AE%E7%AE%A1%E7%90%86/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>中国历史朝代纪年表</title>
-    <link href="http://example.com/2023/10/31/%E4%B8%AD%E5%9B%BD%E5%8E%86%E5%8F%B2%E6%9C%9D%E4%BB%A3%E7%BA%AA%E5%B9%B4%E8%A1%A8/"/>
-    <id>http://example.com/2023/10/31/%E4%B8%AD%E5%9B%BD%E5%8E%86%E5%8F%B2%E6%9C%9D%E4%BB%A3%E7%BA%AA%E5%B9%B4%E8%A1%A8/</id>
-    <published>2023-10-30T16:00:00.000Z</published>
-    <updated>2023-12-07T03:15:27.495Z</updated>
-    
-    <content type="html"><![CDATA[<p><img src="/../imgs/693621-20220817194232902-533904702.png" alt="693621-20220817194232902-533904702"></p><h3 id="中国朝代顺口溜"><a href="#中国朝代顺口溜" class="headerlink" title="中国朝代顺口溜"></a>中国朝代顺口溜</h3><p>三皇五帝夏商周，春秋战国乱悠悠。<br>秦汉三国东西晋，南朝北朝是对头。<br>隋唐五代又十国，宋元明清帝王休。</p><h3 id="中国历代皇帝顺序表"><a href="#中国历代皇帝顺序表" class="headerlink" title="中国历代皇帝顺序表"></a>中国历代皇帝顺序表</h3><p><span style="color:red">秦朝(公元前221 - 207年)</span><br>秦始皇嬴政、秦二世胡亥、秦三世子婴。</p><p><span style="color:red">西汉(公元前202 – 公元8年)</span><br>汉高祖刘邦、汉惠帝刘盈、汉文帝刘恒、汉景帝刘启、汉武帝刘彻、汉昭帝刘弗陵、汉宣帝刘淘、汉元帝刘奭、汉成帝刘蔫、汉哀帝刘欣、汉平帝刘行、孺子婴(王莽摄政)。</p><p><span style="color:red">东汉(25 - 220年)</span><br>光武帝刘秀、汉明帝刘庄、汉章帝刘炟、汉和帝刘肇、汉殇帝刘隆、汉安帝刘祜、汉顺帝刘保、汉冲帝刘炳、汉质帝刘赞、汉桓帝刘志、汉灵帝刘宏、汉献帝刘协。</p><p><span style="color:red">三国(220 - 265年)</span><br>魏国: 魏文帝曹丕、魏明帝曹叡、魏齐王曹芳、高贵乡公曹髦、魏元帝曹奂</p><p>蜀国: 昭烈帝刘备、后主刘禅</p><p>吴国: 武烈帝孙坚、长沙桓王孙策、吴大帝孙权、吴会稽王孙亮、吴景帝孙休、吴乌程侯孙皓晋</p><p><span style="color:red">西晋(265 - 317年)</span><br>晋武帝司马炎、晋惠帝司马衷、晋怀帝司马炽、晋愍帝司马邺。</p><p><span style="color:red">东晋(317 - 420年)</span><br>晋元帝司马睿、晋明帝司马绍、晋成帝司马衍、晋康帝司马岳、晋穆帝司马聘、晋哀帝司马丕、海西公司马奕、简文帝司马昱、孝武帝司马窑、晋安帝司马德宗、晋恭帝司马德文。</p><p><span style="color:red">北朝(386年 - 581年)</span><br>北魏: 道武帝拓跋珪、明元帝拓跋嗣、太武帝拓跋焘、南安王拓跋余、文成帝拓跋浚、献文帝拓跋弘、孝文帝元宏、宣武帝元恪、孝明帝元诩、幼主元钊、孝庄帝元子攸、长广王元晔、节闵帝元恭、安定王元朗、孝武帝元惰</p><p>东魏: 孝静帝元善见</p><p>西魏: 文帝元宝炬、废帝元钦、恭帝拓跋廓</p><p>北齐: 神武帝高欢、文襄帝高澄、文宣帝高洋、废帝高殷、孝昭帝高演、武成帝高湛、后主高纬、安德王高延宗、幼主高恒、范阳王高绍义</p><p>北周: 文帝宇文泰、孝闵帝宇文觉、明帝宇文毓、武帝宇文邕、宣帝宇文赞、静帝宇文衍</p><p><span style="color:red">南朝(420 - 589年)</span><br>宋: 宋武帝刘裕、宋少帝刘义符、宋文帝刘义隆、宋孝武帝刘骏、宋前废帝刘子业、宋明帝刘或、宋后废帝刘昱、宋顺帝刘准</p><p>齐(萧齐): 齐高帝萧道成、齐武帝萧赜、齐明帝萧鸾、东昏侯萧宝、齐和帝萧宝融</p><p>梁(萧梁): 梁武帝萧衍、简文帝萧纲、梁文帝萧绎、梁晋帝萧方智</p><p>陈(南陈): 陈武帝陈霸先、陈文帝陈蓓、陈废帝陈伯宗、陈宣宗陈顼、陈后主陈叔宝</p><p><span style="color:red">隋朝(581 - 618年)</span><br>隋文帝杨坚、隋炀帝杨广、隋恭帝杨侑</p><p><span style="color:red">唐朝(618 - 907年)</span><br>唐高祖李渊、唐太宗李世民、唐高宗李治、武后武则天（武瞾)、唐中宗李显、唐睿宗李旦、唐玄宗李隆基、唐肃宗李享、唐代宗李豫、唐德宗李适、唐顺宗李涌、唐宪宗李纯、唐穆宗李恒、唐敬宗李湛、唐文宗李昂、唐武宗李炎、唐宣宗李忱、唐懿宗李准、唐僖宗李儇、唐昭宗李晔、唐哀帝李祝。</p><p><span style="color:red">北宋(960 - 1127年)</span><br>宋太祖赵匡胤、宋太宗赵匡义、宋真宗赵恒、宋仁宗赵祯、宋英宗赵曙、宋神宗赵顼、宋哲宗赵煦、宋徽宗赵佶、宋钦宗赵桓。</p><p><span style="color:red">南宋(1127 - 1276年)</span><br>宋高宗赵构、宋孝宗赵音、宋光宗赵惇、宋宁宗赵扩、宋理宗赵昀、宋度宗赵樭、宋恭帝赵显。</p><p><span style="color:red">元朝(1260 - 1368年)</span><br>元世祖忽必烈、元成宗、元武宗、元仁宗、元英宗、元泰定帝、元天顺帝、元文宗、元明宗、元宁宗、元顺帝。</p><p><span style="color:red">明朝(1368 - 1644年)</span><br>明太祖朱元璋、明惠帝朱允炆、明成祖朱棣、明仁宗朱高炽、明宣宗朱瞻基、明英宗朱祁镇、明代宗朱祁钰、明英宗朱祁镇、明宪宗朱见深、明孝宗朱祐搅、明武宗朱厚娥、明世宗朱厚燎、明穆宗朱载屋、明神宗朱翊钧、明光宗朱常洛、明熹宗朱由校、明思宗朱由检。</p><p><span style="color:red">清朝(1616 - 1912年)</span><br>清太祖努尔哈赤、清太宗皇太极、清世祖顺治福临、清圣祖康熙玄烨、清世宗雍正胤慎、清高宗乾隆弘历、清仁宗嘉庆顒琰、清宣宗道光旻宁、清文宗咸丰奕、清穆宗同治载淳、清德宗光绪载恬、清宣统帝溥仪。</p>]]></content>
-    
-    
-      
-      
-    <summary type="html">&lt;p&gt;&lt;img src=&quot;/../imgs/693621-20220817194232902-533904702.png&quot; alt=&quot;693621-20220817194232902-533904702&quot;&gt;&lt;/p&gt;
-&lt;h3 id=&quot;中国朝代顺口溜&quot;&gt;&lt;a href=&quot;#中国朝代顺</summary>
-      
-    
-    
-    
-    
-    <category term="历史" scheme="http://example.com/tags/%E5%8E%86%E5%8F%B2/"/>
     
   </entry>
   
